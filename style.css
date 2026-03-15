@@ -252,47 +252,43 @@ body::before {
       display: flex;
     }
 
-    /* Wrapper is fixed so it always sits at the top of the viewport */
+    #nav-spacer {
+      display: none;
+    }
+
+    /* Sticky bar at top — dropdown hangs off it */
     #nav-wrapper {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 400;
     }
 
-    /* Push page content below the fixed wrapper */
-    #nav-spacer {
-      display: block;
-      height: 48px;
-    }
-
-    /* Closed state */
+    /* Closed: zero-height, hidden, overlays page (does not push content) */
     nav {
-      position: fixed;
-      top: 48px;
+      display: flex;
+      position: absolute;
+      top: 100%;
       left: 0;
       right: 0;
-      bottom: 0;
       flex-direction: column;
       align-items: stretch;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding: 0;
+      max-height: 0;
+      overflow: hidden;
       background: var(--bg-panel);
       border-bottom: none;
-      z-index: 399;
-      /* Hidden by translating off-screen — no max-height tricks */
-      transform: translateY(-110%);
-      transition: transform 0.3s ease;
-      visibility: hidden;
+      z-index: 400;
+      transition: max-height 0.3s ease;
+      pointer-events: none;
     }
 
-    /* Open state — slide down into view */
+    /* Open: tall enough to show all links, scrollable inside */
     nav.nav-open {
-      transform: translateY(0);
-      visibility: visible;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      pointer-events: auto;
     }
 
     nav a {
@@ -343,11 +339,10 @@ body::before {
     }
     nav {
       position: static;
-      transform: none !important;
-      visibility: visible !important;
       max-height: none !important;
       overflow: visible;
       box-shadow: none;
+      pointer-events: auto;
     }
   }
 
