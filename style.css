@@ -252,37 +252,36 @@ body::before {
       display: flex;
     }
 
-    /* Hide the big header on mobile — nav toggle shows current page name */
-    header {
-      display: none;
-    }
-
     #nav-spacer {
       display: none;
     }
 
-    #nav-wrapper {
-      position: sticky;
-      top: 0;
-      z-index: 400;
-      overflow: hidden;
-    }
+#nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 400;
+}
 
-    nav {
-      flex-direction: column;
-      align-items: stretch;
-      max-height: 0;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      transition: max-height 0.3s ease;
-      padding: 0;
-    }
+nav {
+  flex-direction: column;
+  align-items: stretch;
+  max-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  transition: max-height 0.3s ease;
+  padding: 0;
+}
 
-    nav.nav-open {
-      max-height: calc(100vh - 48px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-    }
+nav.nav-open {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: none;
+  overflow-y: auto;
+}
 
     nav a {
       padding: 13px 20px;
