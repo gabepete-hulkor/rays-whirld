@@ -252,7 +252,7 @@ body::before {
       display: flex;
     }
 
-    /* Closed state — hidden below the toggle bar */
+    /* Closed state */
     nav {
       position: absolute;
       top: 100%;
@@ -270,20 +270,11 @@ body::before {
       z-index: 300;
     }
 
-    /* Open state — expand to show all links, scroll within the nav */
+    /* Open state — pushes page content down, user scrolls the page normally */
     nav.nav-open {
-      max-height: 80vh;
-      overflow-y: auto;
+      max-height: 100vh;
+      overflow-y: visible;
       border-bottom: 1px solid var(--border);
-      /* Use -webkit-overflow-scrolling for smooth scroll on iOS */
-      -webkit-overflow-scrolling: touch;
-    }
-
-    /* Lock the page scroll while nav is open */
-    body.nav-is-open {
-      overflow: hidden;
-      position: fixed;
-      width: 100%;
     }
 
     /* Keep toggle button always on top */

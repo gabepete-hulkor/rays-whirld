@@ -49,15 +49,6 @@ function closeNav() {
     const toggle = document.getElementById('nav-toggle');
     if (!nav) return;
     nav.classList.remove('nav-open');
-
-    // Release body scroll lock, restoring scroll position
-    if (document.body.classList.contains('nav-is-open')) {
-      const scrollY = parseInt(document.body.style.top || '0') * -1;
-      document.body.classList.remove('nav-is-open');
-      document.body.style.top = '';
-      window.scrollTo(0, scrollY);
-    }
-
     if (toggle) {
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', false);
@@ -77,15 +68,6 @@ function closeNav() {
 
     toggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('nav-open');
-      if (isOpen) {
-        // Lock page scroll — save current position in body.top
-        const scrollY = window.scrollY;
-        document.body.style.top = `-${scrollY}px`;
-        document.body.classList.add('nav-is-open');
-      } else {
-        closeNav();
-        return;
-      }
       toggle.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', isOpen);
       toggle.querySelector('.toggle-icon').textContent = isOpen ? '✕' : '☰';
