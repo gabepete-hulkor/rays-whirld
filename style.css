@@ -256,39 +256,27 @@ body::before {
       display: none;
     }
 
-    /* Sticky bar at top — dropdown hangs off it */
     #nav-wrapper {
       position: sticky;
       top: 0;
       z-index: 400;
+      overflow: hidden;
     }
 
-    /* Closed: zero-height, hidden, overlays page (does not push content) */
     nav {
-      display: flex;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
       flex-direction: column;
       align-items: stretch;
       max-height: 0;
-      overflow: hidden;
-      background: var(--bg-panel);
-      border-bottom: none;
-      z-index: 400;
-      transition: max-height 0.3s ease;
-      pointer-events: none;
-    }
-
-    /* Open: tall enough to show all links, scrollable inside */
-    nav.nav-open {
-      max-height: calc(100vh - 48px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      transition: max-height 0.3s ease;
+      padding: 0;
+    }
+
+    nav.nav-open {
+      max-height: calc(100vh - 48px);
       border-bottom: 1px solid var(--border);
       box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-      pointer-events: auto;
     }
 
     nav a {
@@ -327,22 +315,23 @@ body::before {
     }
   }
 
-  /* Desktop: ensure nav is always visible and static */
+  /* Desktop: nav always visible */
   @media (min-width: 769px) {
     #nav-wrapper {
       position: sticky;
       top: 0;
       z-index: 200;
+      overflow: visible;
     }
     #nav-spacer {
       display: none;
     }
     nav {
-      position: static;
       max-height: none !important;
       overflow: visible;
       box-shadow: none;
-      pointer-events: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
   }
 
