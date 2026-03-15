@@ -41,9 +41,7 @@ function renderClassSpellList(className) {
   container.innerHTML = html;
 }
 
-// Ensure the existing renderSpells() function is modified to only target 'spells-container'
-// and triggered by the 'spell-search' input as per your original script.
-document.getElementById('spell-search').addEventListener('input', renderSpells);
+// renderSpells is called from spellbook.html tab buttons and oninput handlers
 
 /* === script block 3 === */
 function closeNav() {
@@ -123,24 +121,34 @@ const schoolColors = {
 };
 
 function renderSpells() {
-  const searchTerm = document.getElementById('spell-search').value.toLowerCase();
+  const searchEl = document.getElementById('spell-search');
+  const levelEl  = document.getElementById('spell-level-filter');
+  const schoolEl = document.getElementById('spell-school-filter');
+  const countEl  = document.getElementById('spell-count');
   const container = document.getElementById('spells-container');
-  
-  // Filter the SPELLS array based on the search input
-  const filtered = SPELLS.filter(s => 
-    s.name.toLowerCase().includes(searchTerm) || 
-    s.desc.toLowerCase().includes(searchTerm)
-  );
+  if (!container) return;
+
+  const searchTerm = searchEl ? searchEl.value.toLowerCase() : '';
+  const levelFilter = levelEl ? levelEl.value : 'all';
+  const schoolFilter = schoolEl ? schoolEl.value : 'all';
+
+  const schoolColors = {
+    abjuration:'#4a90d9', conjuration:'#9b59b6', divination:'#2ecc71',
+    enchantment:'#e91e8c', evocation:'#e74c3c', illusion:'#8e44ad',
+    necromancy:'#7f8c8d', transmutation:'#e67e22'
+  };
+
+  const filtered = SPELLS.filter(s => {
+    if (levelFilter !== 'all' && String(s.level) !== levelFilter) return false;
+    if (schoolFilter !== 'all' && s.school.toLowerCase() !== schoolFilter) return false;
+    if (searchTerm && !s.name.toLowerCase().includes(searchTerm) && !s.desc.toLowerCase().includes(searchTerm)) return false;
+    return true;
+  });
+
+  if (countEl) countEl.textContent = filtered.length + ' spell' + (filtered.length !== 1 ? 's' : '');
 
   container.innerHTML = filtered.map(s => {
-    // School-based color coding (Optional but looks great)
-    const schoolColors = {
-      abjuration:'#4a90d9', conjuration:'#9b59b6', divination:'#2ecc71', 
-      enchantment:'#e91e8c', evocation:'#e74c3c', illusion:'#8e44ad', 
-      necromancy:'#7f8c8d', transmutation:'#e67e22'
-    };
     const color = schoolColors[s.school.toLowerCase()] || 'var(--gold)';
-
     return `
       <div class="spell-card" style="border-left-color: ${color}">
         <div class="spell-header">
