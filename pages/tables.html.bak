@@ -1,0 +1,262 @@
+<h1 class="page-title">Tables & Reference</h1>
+  <p class="lead">Essential charts and roll tables for combat, progression, and world mechanics.</p>
+
+  <div class="tab-container">
+    <div class="tab-buttons">
+      <button class="tab-button active" onclick="switchTab('tables', 'combat', this)">⚔️ Combat & Action</button>
+      <button class="tab-button" onclick="switchTab('tables', 'progression', this)">📈 Progression</button>
+      <button class="tab-button" onclick="switchTab('tables', 'size', this)">🐉 Size & Hit Dice</button>
+      <button class="tab-button" onclick="switchTab('tables', 'world', this)">💰 Economy & Load</button>
+    </div>
+
+    <div class="tab-content active" id="tables-combat">
+      <h2 class="section-title">Attack Bonus Differential</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Attacker's Attack Bonus Higher By</th>
+            <th>Bonus to Hit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1-5</td><td>+1</td></tr>
+          <tr><td>6-10</td><td>+2</td></tr>
+          <tr><td>11-15</td><td>+3</td></tr>
+          <tr><td>16-20</td><td>+4</td></tr>
+          <tr><td>21+</td><td>+5</td></tr>
+        </tbody>
+      </table>
+<!-- Speed & Initiative (part of Combat tab) -->
+  <h2 class="section-title">RW Difference, Speed, & Initiative</h2>
+  <table class="wiki-table">
+    <thead>
+      <tr>
+        <th>Difference</th>
+        <th>Bonus</th>
+        <th>Damage</th>
+        <th>Speed</th>
+        <th>Initiative</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1-5</td><td>+1 to +5</td><td>norm</td><td>1</td><td>d6</td></tr>
+      <tr><td>6-7</td><td>6</td><td>norm</td><td>2</td><td>d7</td></tr>
+      <tr><td>8-11</td><td>7</td><td>norm</td><td>3</td><td>d6+1</td></tr>
+      <tr><td>12-16</td><td>8</td><td>norm</td><td>4</td><td>d8</td></tr>
+      <tr><td>17-25</td><td>9</td><td>norm</td><td>5</td><td>d7+1</td></tr>
+      <tr><td>26-35</td><td>10</td><td>norm</td><td>6</td><td>d8+1</td></tr>
+      <tr><td>36-40</td><td>2</td><td>x2</td><td>7</td><td>d10</td></tr>
+      <tr><td>41-50</td><td>3</td><td>x2</td><td>8</td><td>d10+1</td></tr>
+      <tr><td>51-60</td><td>4</td><td>x2</td><td>9</td><td>d12</td></tr>
+      <tr><td>61-70</td><td>5</td><td>x2</td><td>10</td><td>d12+1</td></tr>
+      <tr><td>71-80</td><td>6</td><td>x2</td><td>15</td><td>d20+1</td></tr>
+      <tr><td>81-90</td><td>7</td><td>x2</td><td>20</td><td>d30+1 (25=d20+d7)</td></tr>
+      <tr><td>91-100</td><td>8</td><td>x2</td><td>30</td><td>2d20</td></tr>
+      <tr><td>101-150</td><td>9</td><td>x2</td><td>40</td><td>3d20</td></tr>
+      <tr><td>151-200</td><td>10</td><td>x2</td><td>50</td><td>3d20+5</td></tr>
+      <tr><td>201-300</td><td>11</td><td>x2</td><td>100</td><td>5d30+5</td></tr>
+      <tr><td>301-400</td><td>3</td><td>x3</td><td>—</td><td>—</td></tr>
+      <tr><td>401-500</td><td>4</td><td>x3</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+  
+  <p class="wiki-note">
+    <strong>Extended Progression Rules:</strong><br>
+    • <strong>Damage x3:</strong> Bonus increases +1 per 100 Difference (+12 at 1200).<br>
+    • <strong>Damage x4:</strong> Resets to +4 at 1301 Difference (+13 at 2201).
+  </p>
+</div>
+      <h2 class="section-title">Defender Bonus Differential</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Defender's Defense Higher By</th>
+            <th>Penalty to Hit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1-5</td><td>-1</td></tr>
+          <tr><td>6-10</td><td>-2</td></tr>
+          <tr><td>11-15</td><td>-3</td></tr>
+          <tr><td>16-20</td><td>-4</td></tr>
+          <tr><td>21+</td><td>-5</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">RW Combat Differences</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Difference</th>
+            <th>Bonus</th>
+            <th>Damage</th>
+            <th>Speed</th>
+            <th>Initiative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1-5</td><td>+1-+5</td><td>norm</td><td>1</td><td>d6</td></tr>
+          <tr><td>6-7</td><td>+6</td><td>norm</td><td>2</td><td>d7</td></tr>
+          <tr><td>8-11</td><td>+7</td><td>norm</td><td>3</td><td>d6+1</td></tr>
+          <tr><td>12-16</td><td>+8</td><td>norm</td><td>4</td><td>d8</td></tr>
+          <tr><td>17-25</td><td>+9</td><td>norm</td><td>5</td><td>d7+1</td></tr>
+          <tr><td>26.35</td><td>+10</td><td>norm</td><td>6</td><td>d8+1</td></tr>
+          <tr><td>36-40</td><td>+2</td><td>x2</td><td>7</td><td>d10</td></tr>
+          <tr><td>41-50</td><td>+3</td><td>x2</td><td>8</td><td>d10+1</td></tr>
+          <tr><td>51-60</td><td>+4</td><td>x2</td><td>9</td><td>d12</td></tr>
+          <tr><td>61-70</td><td>+5</td><td>x2</td><td>10</td><td>d12+1</td></tr>
+          <tr><td>71-80</td><td>+6</td><td>x2</td><td>15</td><td>d20+2</td></tr>
+          <tr><td>81-90</td><td>+7</td><td>x2</td><td>20</td><td>d30+1</td></tr>
+          <tr><td>91-100</td><td>+8</td><td>x2</td><td>30</td><td>2d20</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tab-content" id="tables-progression">
+      <h2 class="section-title">Saving Throw Progression</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Good Save</th>
+            <th>Poor Save</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1st</td><td>+2</td><td>+0</td></tr>
+          <tr><td>5th</td><td>+4</td><td>+1</td></tr>
+          <tr><td>10th</td><td>+7</td><td>+3</td></tr>
+          <tr><td>15th</td><td>+9</td><td>+5</td></tr>
+          <tr><td>20th</td><td>+12</td><td>+6</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Proficiency Slots</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Group</th>
+            <th>Wp Initial</th>
+            <th>Wp Level</th>
+            <th>Penalty</th>
+            <th>NW Initial</th>
+            <th>NW Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Fighter</td><td>4</td><td>3</td><td>-2</td><td>3</td><td>3</td></tr>
+          <tr><td>Wizard</td><td>1</td><td>6</td><td>-5</td><td>4</td><td>3</td></tr>
+          <tr><td>Cleric</td><td>2</td><td>4</td><td>-3</td><td>4</td><td>3</td></tr>
+          <tr><td>Thief</td><td>2</td><td>4</td><td>-3</td><td>3</td><td>4</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Experience Point Awards</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Challenge</th>
+            <th>XP Award</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Minor accomplishment</td><td>10-50 XP</td></tr>
+          <tr><td>Moderate accomplishment</td><td>50-100 XP</td></tr>
+          <tr><td>Major accomplishment</td><td>100-500 XP</td></tr>
+          <tr><td>Epic accomplishment</td><td>500-1000 XP</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tab-content" id="tables-size">
+      <h2 class="section-title">The Influence of Size</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Size Category</th>
+            <th>Height/Length</th>
+            <th>Combat Modifiers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gargantuan</td><td>32 ft. – 64 ft.</td><td>-4 Size, -4 Fly, +4 Special</td></tr>
+          <tr><td>Large</td><td>8 ft. – 16 ft.</td><td>-1 Size, -1 Fly, +1 Special</td></tr>
+          <tr><td>Medium</td><td>4 ft. – 8 ft.</td><td>+0 Size, +0 Fly, +0 Special</td></tr>
+          <tr><td>Small</td><td>2 ft. – 4 ft.</td><td>+1 Size, +1 Fly, -1 Special</td></tr>
+          <tr><td>Tiny</td><td>1 ft. – 2 ft.</td><td>+2 Size, +2 Fly, -2 Special</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Hit Dice Ranks</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Hit Dice</th>
+            <th>Bonus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>d4</td><td>+0</td></tr>
+          <tr><td>3</td><td>d8</td><td>+2</td></tr>
+          <tr><td>5</td><td>d12</td><td>+4</td></tr>
+          <tr><td>6</td><td>d20</td><td>+5</td></tr>
+          <tr><td>8</td><td>2d20</td><td>+8</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tab-content" id="tables-world">
+      <h2 class="section-title">Currency Conversion</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Copper (CP)</th>
+            <th>Silver (SP)</th>
+            <th>Gold (GP)</th>
+            <th>Platinum (PP)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>10 CP</td><td>1 SP</td><td>—</td><td>—</td></tr>
+          <tr><td>100 CP</td><td>10 SP</td><td>1 GP</td><td>—</td></tr>
+          <tr><td>1,000 CP</td><td>100 SP</td><td>10 GP</td><td>1 PP</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Encumbrance</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Load</th>
+            <th>Max Weight</th>
+            <th>Penalty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Light</td><td>STR × 5 lbs</td><td>None</td></tr>
+          <tr><td>Medium</td><td>STR × 10 lbs</td><td>-10 ft</td></tr>
+          <tr><td>Heavy</td><td>STR × 15 lbs</td><td>-20 ft</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Skill Difficulty Classes</h2>
+      <table class="wiki-table">
+        <thead>
+          <tr>
+            <th>Difficulty</th>
+            <th>DC</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Easy</td><td>10</td><td>Hear guards approaching</td></tr>
+          <tr><td>Average</td><td>15</td><td>Pick a simple lock</td></tr>
+          <tr><td>Difficult</td><td>20</td><td>Swim in stormy water</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--
+</div><!-- /.tab-container -->
