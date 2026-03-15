@@ -235,11 +235,40 @@ function goToSearchResult(pageId) {
 //  BOOTSTRAP — load home page on startup
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Restore saved theme preference
+  initTheme();
+
   const homeLink = document.querySelector("nav a[onclick*=\"'home'\"]");
   showPage('home', homeLink);
   initWikiSearch();
 });
+
+function initTheme() {
+  const saved = localStorage.getItem('rw-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const useDark = saved ? saved === 'dark' : prefersDark;
+  if (!useDark) {
+    document.body.classList.add('light-mode');
+  }
+  updateThemeButton();
+}
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light-mode');
+  localStorage.setItem('rw-theme', isLight ? 'light' : 'dark');
+  updateThemeButton();
+}
+
+function updateThemeButton() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const isLight = document.body.classList.contains('light-mode');
+  btn.textContent = isLight ? '🌙' : '☀️';
+  btn.title = isLight ? 'Switch to dark mode' : 'Switch to light mode';
+}
 </script>
+
+<button id="theme-toggle" title="Toggle light/dark mode" onclick="toggleTheme()">☀️</button>
 
 </body>
 </html>
