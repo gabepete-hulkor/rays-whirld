@@ -252,34 +252,46 @@ body::before {
       display: flex;
     }
 
-    /* nav-wrapper must be relative so the absolute nav positions correctly */
+    /* Wrapper is fixed so it always sits at the top of the viewport */
     #nav-wrapper {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 400;
-      /* Expand to contain the open nav so it doesn't overlap page content */
     }
 
-    /* Closed state — zero height, hidden */
+    /* Push page content below the fixed wrapper */
+    #nav-spacer {
+      display: block;
+      height: 48px;
+    }
+
+    /* Closed state */
     nav {
-      position: relative;
+      position: fixed;
+      top: 48px;
+      left: 0;
+      right: 0;
+      bottom: 0;
       flex-direction: column;
       align-items: stretch;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       padding: 0;
       background: var(--bg-panel);
       border-bottom: none;
-      z-index: 300;
+      z-index: 399;
+      /* Hidden by translating off-screen — no max-height tricks */
+      transform: translateY(-110%);
+      transition: transform 0.3s ease;
+      visibility: hidden;
     }
 
-    /* Open state — expands in flow, pushing page content down */
+    /* Open state — slide down into view */
     nav.nav-open {
-      max-height: 80vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      border-bottom: 1px solid var(--border);
+      transform: translateY(0);
+      visibility: visible;
       box-shadow: 0 8px 24px rgba(0,0,0,0.5);
     }
 
@@ -321,8 +333,18 @@ body::before {
 
   /* Desktop: ensure nav is always visible and static */
   @media (min-width: 769px) {
+    #nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    #nav-spacer {
+      display: none;
+    }
     nav {
       position: static;
+      transform: none !important;
+      visibility: visible !important;
       max-height: none !important;
       overflow: visible;
       box-shadow: none;
