@@ -206,29 +206,7 @@ function rollMutation() {
   result.innerHTML = `<span style="font-family:Cinzel,serif;color:${c.color};font-size:1.1em;">🎲 Roll ${m.n}:</span> &nbsp;<strong style="color:#e8d5a0;">${m.text}</strong> &nbsp;<span style="background:${c.color}22;color:${c.color};font-size:0.72em;font-family:Cinzel,serif;padding:2px 8px;border-radius:8px;">${c.label}</span>`;
 }
 // Tab switching function
-function switchTab(section, tabName, button) {
-  // Hide all tab contents in this section
-  const sectionEl = document.getElementById('page-' + section);
-  sectionEl.querySelectorAll('.tab-content').forEach(tab => {
-    tab.classList.remove('active');
-  });
-  
-  // Remove active class from all buttons in this section
-  sectionEl.querySelectorAll('.tab-button').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  
-  // Show the selected tab
-  const targetTab = document.getElementById(section + '-' + tabName);
-  if (targetTab) {
-    targetTab.classList.add('active');
-  }
-  
-  // Activate the clicked button
-  if (button) {
-    button.classList.add('active');
-  }
-}
+/* switchTab defined below */
 
 // Global variable to track current class filter
 let currentSpellClass = 'all';
@@ -349,28 +327,32 @@ function filterSpellsByClass(className) {
   container.insertAdjacentHTML('beforebegin', countText);
 }
 
-// Render Cleric Spells
-<script>
-function renderClericSpells() {
-  const container = document.getElementById('spells-container-cleric');
-  container.innerHTML = ''; // clear existing spells
-
-  clericSpells.forEach(spell => {
-    const card = document.createElement('div');
-    card.className = 'spell-card';
-    card.innerHTML = `
-      <div class="spell-header">
-        <h3 class="spell-name">${spell.name}</h3>
-        <div class="spell-meta">${spell.level} | ${spell.school}</div>
-      </div>
-      <p class="spell-desc">${spell.description}</p>
-    `;
-    container.appendChild(card);
-  });
-}
 
 /* === script block 7 === */
 // Render Mage Spells
+function renderClericSpells() {
+  const container = document.getElementById('spells-container-cleric');
+  if (!container) return;
+  
+  const clericSpells = {
+    1: {spells: ['Hulkor Test', 'Bless', 'Ceremony+', 'Combine+', 'Cloud of Kindness*', 'Command', 'Create Water', 'Cure Light Wounds (1d8)', 'Detect Evil', 'Detect Magic', 'Endure Cold/Heat+', 'Invisibility to Undead+', 'Light', 'Magic Stone+', 'Penetrate Disguise+', 'Portent+', 'Precipitation+', 'Protection from Evil', 'Purify Food & Drink', 'Remove Fear', 'Resist Cold', 'Sanctuary'], desc: 'Level 1 Cleric spells.'},
+    2: {spells: ['Aid+', 'Aura of Evil Detection*', 'Augury', 'Chant', 'Cure Moderate Wounds (2d7)*', 'Detect Charm', 'Detect Life+', 'Dust Devil+', 'Enthrall+', 'Find Traps', 'Hold Person', 'Holy Symbol+', 'Jam*', 'Know Alignment', 'Messenger+', 'Protective v Evil 1m Radius', 'Resist Fire', 'Silence 15\' Radius', 'Slow Poison', 'Snake Charm', 'Speak With Animals', 'Spiritual Hammer', 'Ward vs Undead*', 'Withdraw+', 'Wyvern Watch+'], desc: 'Level 2 Cleric spells.'},
+    3: {spells: ['Animate Dead', 'Cloudburst+', 'Continual Light', 'Create Food & Water', 'Cure Blindness', 'Cure Disease', 'Death\'s Door+', 'Dispel Magic', 'Feign Death', 'Flame Walk+', 'Glyph of Warding', 'Locate Object', 'Magical Vestment+', 'Meld into Stone+', 'Negative Plane Protection+', 'Prayer', 'Protect vs Chaos/Law*', 'Remove Curse', 'Remove Paralysis+', 'Short Circuit*', 'Speak with Dead', 'Teleport Dead*', 'Water Walk+'], desc: 'Level 3 Cleric spells.'},
+    4: {spells: ['Abjure+', 'Censure*', 'Cloak of Fear+', 'Cure Serious Wounds (4d8)', 'Detect Lie', 'Command Phrase*', 'Dispel Lore*', 'Disrupt Tech*', 'Divination', 'Exorcise', 'Giant Insect+', 'Imbue With Spell Ability+', 'Lower Water', 'Neutralize Poison', 'Protect from Evil 10\' Radius', 'Sacred Hammer*', 'Speak With Plants', 'Spell Immunity+', 'Spike Stones+', 'Sticks to Snakes', 'Tongues', 'Transfer Curse*'], desc: 'Level 4 Cleric spells.'},
+    5: {spells: ['Air Walk+', 'Animate Dead Monsters+', 'Atonement', 'Command Speech*', 'Commune', 'Cure Critical Wounds (5d10)', 'Dispel Evil', 'Flame Strike', 'Gather Sheaves*', 'Golem+', 'Insect Plague', 'Magic Font+', 'Neutralize Acid*', 'Plane Shift', 'Protection Vs. Radiation*', 'Quest', 'Rainbow+', 'Raise Dead', 'Spike Growth+', 'Sunburst*', 'True Seeing', 'Word of Recall'], desc: 'Level 5 Cleric spells.'},
+    6: {spells: ['Aerial Servant', 'Animate Object', 'Blade Barrier', 'Celestial Hammer*', 'Conjure Animals', 'Control Golem*', 'Cure Horrid Wounds (12d12)*', 'Death Link*', 'Disrupt Law*', 'Find the Path', 'Fog of Forget*', 'Forbiddance+', 'Heal', 'Hero\'s Feast+', 'Part Water', 'Protection vs Law/Chaos 10\' Radius*', 'Order Chaos*', 'Speak with Monsters', 'Stone Tell', 'Summon Symbiant Spirit*', 'Visions of Hell*'], desc: 'Level 6 Cleric spells.'},
+    7: {spells: ['Angelic Aid*', 'Astral Spell', 'Control Weather', 'Earthquake', 'Exaction+', 'Gate', 'Holy (Unholy) Word', 'Permanent Light', 'Regenerate', 'Restoration', 'Resurrection', 'Succor+', 'Symbol', 'Rhyton\'s Release*', 'Wind Walk'], desc: 'Level 7 Cleric spells.'},
+    8: {spells: ['Angelic Host*', 'Create Grudge*', 'Miracle*', 'Smite*', 'Voo Doo Gate*'], desc: 'Level 8 Cleric spells.'}
+  };
+  
+  let html = '';
+  for (let level = 1; level <= 8; level++) {
+    const levelData = clericSpells[level];
+    if (!levelData) continue;
+    html += `<div style="margin-bottom:40px"><h3 style="font-family:'Cinzel',serif;color:var(--gold);font-size:1.4rem;margin-bottom:15px;padding-bottom:8px;border-bottom:2px solid var(--border)">Level ${level} <span style="font-size:0.9rem;color:var(--text-muted)">(${levelData.spells.length} spells)</span></h3><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:15px">${levelData.spells.map(spell=>{let d=spell;if(spell.includes('+'))d=spell.replace(/\+/g,'<sup style="color:var(--gold);font-size:0.7em">+</sup>');if(spell.includes('*'))d=d.replace(/\*/g,'<sup style="color:var(--blue-bright);font-size:0.7em">*</sup>');return`<div style="padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:4px;font-size:0.92rem;transition:all 0.2s;cursor:default"onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.borderColor='var(--gold)'"onmouseout="this.style.background='var(--bg-card)';this.style.borderColor='var(--border)'">${d}</div>`}).join('')}</div><div style="padding:12px 16px;background:rgba(201,168,76,0.05);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;font-size:0.95rem;color:var(--text-muted);font-style:italic;line-height:1.6">${levelData.desc}</div></div>`;
+  }
+  container.innerHTML = html;
+}
 function renderMageSpells() {
   const container = document.getElementById('spells-container-mage');
   if (!container) return;
@@ -400,29 +382,30 @@ function renderMageSpells() {
 /* === script block 8 === */
 // Tab switching function
 function switchTab(section, tabName, button) {
-  // Hide all tab contents in this section
-  const sectionEl = document.getElementById('page-' + section);
+  // Find the container - works with or without the page-section wrapper.
+  // Walk up from the clicked button to the nearest .tab-container ancestor.
+  let sectionEl = document.getElementById('page-' + section);
   if (!sectionEl) {
-    console.error('Section not found:', 'page-' + section);
-    return;
+    sectionEl = button ? button.closest('.tab-container') : null;
   }
-  
+  if (!sectionEl) {
+    sectionEl = document.getElementById('page-container');
+  }
+  if (!sectionEl) return;
+
   sectionEl.querySelectorAll('.tab-content').forEach(tab => {
     tab.classList.remove('active');
   });
-  
-  // Remove active class from all buttons in this section
+
   sectionEl.querySelectorAll('.tab-button').forEach(btn => {
     btn.classList.remove('active');
   });
-  
-  // Show the selected tab
+
   const targetTab = document.getElementById(section + '-' + tabName);
   if (targetTab) {
     targetTab.classList.add('active');
   }
-  
-  // Activate the clicked button
+
   if (button) {
     button.classList.add('active');
   }
