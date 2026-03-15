@@ -21,6 +21,76 @@
     --border-bright: rgba(201,168,76,0.7);
   }
 
+  /* ===== LIGHT MODE ===== */
+  body.light-mode {
+    --gold: #8a5e10;
+    --gold-light: #a07020;
+    --gold-dark: #c49040;
+    --bg-mid: #f0ebe0;
+    --bg-deep: #faf6ee;
+    --bg-panel: #ede8dd;
+    --bg-card: #e8e2d4;
+    --text: #2a2215;
+    --text-muted: #6b5c3e;
+    --red: #c04040;
+    --red-bright: #a02020;
+    --blue: #1e5a9a;
+    --blue-bright: #1a4a8a;
+    --green: #1e6a2e;
+    --green-bright: #1a5a28;
+    --purple: #6a2e9e;
+    --purple-bright: #7a3aae;
+    --border: rgba(138,94,16,0.25);
+    --border-bright: rgba(138,94,16,0.6);
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(180,140,60,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(180,100,60,0.05) 0%, transparent 60%);
+  }
+
+  body.light-mode header {
+    background: linear-gradient(180deg, rgba(180,140,60,0.1) 0%, transparent 100%);
+  }
+
+  body.light-mode .roll-example,
+  body.light-mode .formula {
+    background: rgba(0,0,0,0.06);
+  }
+
+  body.light-mode .wiki-table tr:nth-child(even) td {
+    background: rgba(0,0,0,0.03);
+  }
+
+  body.light-mode .wiki-table tr:hover td {
+    background: rgba(138,94,16,0.06);
+  }
+
+  /* Light/Dark toggle button */
+  #theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border-bright);
+    background: var(--bg-card);
+    color: var(--gold);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+
+  #theme-toggle:hover {
+    transform: scale(1.1);
+    border-color: var(--gold);
+  }
+
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
@@ -182,30 +252,47 @@ body::before {
       display: flex;
     }
 
-    /* Nav is fixed to the viewport so scrolling never dismisses it */
-    nav {
+    /* Wrapper is fixed so it always sits at the top of the viewport */
+    #nav-wrapper {
       position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
+      z-index: 400;
+    }
+
+    /* Push page content below the fixed wrapper */
+    #nav-spacer {
+      display: block;
+      height: 48px;
+    }
+
+    /* Closed state */
+    nav {
+      position: fixed;
+      top: 48px;
       left: 0;
       right: 0;
       bottom: 0;
       flex-direction: column;
       align-items: stretch;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       padding: 0;
       background: var(--bg-panel);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
       border-bottom: none;
-      z-index: 300;
+      z-index: 399;
+      /* Hidden by translating off-screen — no max-height tricks */
+      transform: translateY(-110%);
+      transition: transform 0.3s ease;
+      visibility: hidden;
     }
 
+    /* Open state — slide down into view */
     nav.nav-open {
-      max-height: 100vh;
-      overflow-y: auto;
-      border-bottom: 1px solid var(--border);
-      padding-top: 48px; /* leave room for the toggle button */
+      transform: translateY(0);
+      visibility: visible;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
     }
 
     nav a {
@@ -246,8 +333,18 @@ body::before {
 
   /* Desktop: ensure nav is always visible and static */
   @media (min-width: 769px) {
+    #nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    #nav-spacer {
+      display: none;
+    }
     nav {
       position: static;
+      transform: none !important;
+      visibility: visible !important;
       max-height: none !important;
       overflow: visible;
       box-shadow: none;
@@ -936,37 +1033,5 @@ body::before {
   padding: 0 2px;
 }
 
-  /* ===== MOBILE NAV OVERLAY ===== */
-  @media (max-width: 768px) {
-    /* Dark backdrop behind the open nav */
-    body.nav-is-open::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 290;
-    }
 
-    /* Keep the toggle button on top of the open nav */
-    #nav-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 310;
-    }
-
-    /* Push page content down by nav-wrapper height when not open */
-    #nav-wrapper + * {
-      padding-top: 48px;
-    }
-  }
-
-  @media (min-width: 769px) {
-    #nav-wrapper {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-    }
-  }
 

@@ -49,7 +49,6 @@ function closeNav() {
     const toggle = document.getElementById('nav-toggle');
     if (!nav) return;
     nav.classList.remove('nav-open');
-    document.body.classList.remove('nav-is-open');
     if (toggle) {
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', false);
@@ -69,7 +68,6 @@ function closeNav() {
 
     toggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('nav-open');
-      document.body.classList.toggle('nav-is-open', isOpen);
       toggle.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', isOpen);
       toggle.querySelector('.toggle-icon').textContent = isOpen ? '✕' : '☰';
