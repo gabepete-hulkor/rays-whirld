@@ -182,12 +182,13 @@ body::before {
       display: flex;
     }
 
-    /* Nav drops down as a floating overlay — does NOT push content down */
+    /* Nav is fixed to the viewport so scrolling never dismisses it */
     nav {
-      position: absolute;
-      top: 100%;
+      position: fixed;
+      top: 0;
       left: 0;
       right: 0;
+      bottom: 0;
       flex-direction: column;
       align-items: stretch;
       max-height: 0;
@@ -197,12 +198,14 @@ body::before {
       background: var(--bg-panel);
       box-shadow: 0 8px 24px rgba(0,0,0,0.6);
       border-bottom: none;
+      z-index: 300;
     }
 
     nav.nav-open {
-      max-height: 60vh;
+      max-height: 100vh;
       overflow-y: auto;
       border-bottom: 1px solid var(--border);
+      padding-top: 48px; /* leave room for the toggle button */
     }
 
     nav a {
@@ -932,3 +935,38 @@ body::before {
   border-radius: 2px;
   padding: 0 2px;
 }
+
+  /* ===== MOBILE NAV OVERLAY ===== */
+  @media (max-width: 768px) {
+    /* Dark backdrop behind the open nav */
+    body.nav-is-open::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 290;
+    }
+
+    /* Keep the toggle button on top of the open nav */
+    #nav-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 310;
+    }
+
+    /* Push page content down by nav-wrapper height when not open */
+    #nav-wrapper + * {
+      padding-top: 48px;
+    }
+  }
+
+  @media (min-width: 769px) {
+    #nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+  }
+

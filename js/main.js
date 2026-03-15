@@ -49,6 +49,7 @@ function closeNav() {
     const toggle = document.getElementById('nav-toggle');
     if (!nav) return;
     nav.classList.remove('nav-open');
+    document.body.classList.remove('nav-is-open');
     if (toggle) {
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', false);
@@ -68,6 +69,7 @@ function closeNav() {
 
     toggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('nav-open');
+      document.body.classList.toggle('nav-is-open', isOpen);
       toggle.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', isOpen);
       toggle.querySelector('.toggle-icon').textContent = isOpen ? '✕' : '☰';
@@ -78,14 +80,8 @@ function closeNav() {
       if (e.target.tagName === 'A') closeNav();
     });
 
-    // Close when user scrolls
-    let lastY = window.scrollY;
-    window.addEventListener('scroll', () => {
-      if (Math.abs(window.scrollY - lastY) > 10) {
-        closeNav();
-        lastY = window.scrollY;
-      }
-    }, { passive: true });
+    // NOTE: We deliberately do NOT close the nav on scroll,
+    // so mobile users can open the menu and scroll through all options.
 
     // Close when tapping outside
     document.addEventListener('click', e => {
