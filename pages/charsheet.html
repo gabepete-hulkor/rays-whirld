@@ -1,0 +1,313 @@
+<h1 class="page-title">Character Information</h1>
+  <p class="lead">Everything you need to create and track your Ray's Whirld character.</p>
+  
+  <div class="tab-container">
+    <div class="tab-buttons">
+      <button class="tab-button active" onclick="switchTab('charsheet', 'creation', this)">🧙 Character Creation</button>
+<button class="tab-button" onclick="switchTab('charsheet', 'guide', this)">📋 Character Sheet Guide</button>
+<button class="tab-button" onclick="switchTab('charsheet', 'template', this)">📄 Blank Sheet</button>
+    </div>
+    
+    <!-- TAB 1: CHARACTER CREATION -->
+    <div class="tab-content active" id="charsheet-creation">
+      <h1 class="page-title">Character Creation</h1>
+      <p class="lead">Creating a character in Ray's Whirld is a multi-step process. Work with your DM at every stage!</p>
+
+      <h2 class="section-title">Step-by-Step Creation</h2>
+
+      <div class="class-grid">
+        <div class="class-card">
+          <div class="class-name">Step 1: Who Do You Want to Be?</div>
+          <p>Choose Class(es) and generate randomly or choose a Template (Archetype). Think of your favorite adventurer from books, movies, games, or your own ideas.</p>
+          <p class="muted"><em>Templates cost Grudge — Worth it?!</em></p>
+        </div>
+        <div class="class-card">
+          <div class="class-name">Step 2: What Else?</div>
+          <p>Choose Subclasses, Back Story, Skills, Proficiencies, and Alignment. Work with your DM on all of these.</p>
+        </div>
+        <div class="class-card">
+          <div class="class-name">Step 3: Roll 'Em!</div>
+          <p>Roll your ability scores using the best options available for your class. Use Grudge to improve bad rolls!</p>
+        </div>
+        <div class="class-card">
+          <div class="class-name">Step 4: Mutations &amp; Specials</div>
+          <p>Choose 1–5 Mutations (Random or By Template). 1 in 5 is Defective — roll well! Use Grudge. Choose Special Abilities class by class, plus financial and family background.</p>
+        </div>
+        <div class="class-card">
+          <div class="class-name">Step 5: Fix It — Last Chance!</div>
+          <p>Grudge, Grudge, Grudge. Spend Grudge to fix scores, mutations, proficiencies, and skills. Last chance before play!</p>
+        </div>
+        <div class="class-card">
+          <div class="class-name">Step 6: Equip!</div>
+          <p>The best you can. Use Grudge as available. Mind your proficiencies and skills — take note!</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Ability Scores</h2>
+      <p>Roll best (highest) 6 out of 12/20 dice for most scores. Luck uses best 2 of 20.</p>
+
+      <table class="wiki-table">
+        <thead>
+          <tr><th>Score</th><th>Abbreviation</th><th>Combat Use</th><th>Skill Use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Strength</td><td>Str</td><td>+½ Str over 15 to Atk &amp; Def</td><td>Physical feats</td></tr>
+          <tr><td>Dexterity</td><td>Dex</td><td>+½ Dex over 15 to Atk, Def &amp; SplH</td><td>Acrobatics, Lockpick, Traps</td></tr>
+          <tr><td>Intelligence</td><td>Int</td><td>Spell Low bonus for Mage/Illusionist</td><td>Literacy, Tec Use; +1 skill per Int &gt; 15</td></tr>
+          <tr><td>Wisdom</td><td>Wis</td><td>Spell Low for Cleric/Druid; Lör key stat</td><td>—</td></tr>
+          <tr><td>Constitution</td><td>Con</td><td>Hit Points per level</td><td>Swimming, endurance</td></tr>
+          <tr><td>Charisma</td><td>Cha</td><td>Song Power for Bards</td><td>Social interaction</td></tr>
+          <tr><td>Luck</td><td>Lk</td><td>Saving Throws (Spells, Fear, Hypnosis)</td><td>Mutation power</td></tr>
+          <tr><td>Sight</td><td>Si</td><td>—</td><td>Find, Search, Detect</td></tr>
+          <tr><td>Hearing</td><td>He</td><td>—</td><td>Listen, Detect</td></tr>
+          <tr><td>Smell</td><td>Sm</td><td>—</td><td>Tracking, Detect</td></tr>
+          <tr><td>Taste</td><td>Ta</td><td>—</td><td>Poison detection, food</td></tr>
+          <tr><td>Touch</td><td>To</td><td>—</td><td>Trap detection, crafting</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Names</h2>
+      <div class="hero">
+        <div class="card">
+          <div class="card-title">Basic Name</div>
+          <p>What you start with. Unfortunate names may earn Grudge (e.g., PickButtKiss, Flemmy HandShake, Upchuck, Snotgas).</p>
+          <p>Flashy names are free (mostly). Example: Fabian BigThews.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Heroe Name</div>
+          <p>What you earn and live up to. A good Heroe Name should:</p>
+          <ol style="padding-left:20px; margin:8px 0;">
+            <li>Hint at your powers</li>
+            <li>Strike fear in your enemies</li>
+            <li>Look good on Slurpee Cups and other Promotional Materials (ProMat)</li>
+          </ol>
+          <p class="muted"><em>"Copyrights apply — don't call yourself Superman!"</em></p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Character Sheet Guidelines</h2>
+      <div class="callout">
+        <div class="callout-title">📋 Sheet Structure</div>
+        <p>Each character sheet is different, but all share some basics:</p>
+        <ul class="wiki-list">
+          <li><strong>Page 1 (Self):</strong> Name, Heroe Name, Species, Classes &amp; Levels, Alignment, Appearance, HP, All Scores, Special Abilities, Mutations, Saving Throws, Combat Modifiers (Math Section — don't panic!)</li>
+          <li><strong>Equipment Pages:</strong> Outfit, Kits, Weapons, Wands, Potions, Vehicles, etc.</li>
+          <li><strong>Character Log:</strong> Separate section or notebook — "Today My Adventure Began…" Track victories and defeats for XP.</li>
+        </ul>
+      </div>
+
+      <h2 class="section-title">The Outfit</h2>
+      <p>Assembled from random pieces or custom made. Ranges from Normal Canvas, poorly sewn, to Custom Super BioTec Magic with Name. The Outfit makes the character (partly...).</p>
+
+      <table class="wiki-table">
+        <thead><tr><th>Slot</th><th>Options</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Headpiece</td><td>Mask, Goggles, Hat, Helmet, or combo</td><td>One or combination</td></tr>
+          <tr><td>Belts</td><td>Bandolier, Utility belt</td><td>One set</td></tr>
+          <tr><td>Amulet</td><td>Cleric's Holy Symbol</td><td>Required for Clerics</td></tr>
+          <tr><td>Suit</td><td>Body Covering — Tights to Plate Armor</td><td>One</td></tr>
+          <tr><td>Hand &amp; Forearm</td><td>Rings, Bracers, Gloves, Gauntlets</td><td>Max 3 Rings/Hand + Bracers, or Gloves + 2 Rings, or Gauntlets + 1 Spell Ring</td></tr>
+          <tr><td>Boots</td><td>Shoes (Pair or Set)</td><td>—</td></tr>
+          <tr><td>Back</td><td>Cape, Pack, Cloak, Wings</td><td>One</td></tr>
+        </tbody>
+      </table>
+
+      <p class="muted">More powerful items have requirements for use: Level, Dex, Str, Intel, etc.</p>
+
+      <h2 class="section-title">Leaving Home</h2>
+      <p>Upon coming of age (humans approximately 15 years old), the hero leaves home. Possible reasons:</p>
+      <ul class="wiki-list">
+        <li>To prove self ("I'll Show Them!")</li>
+        <li>To become rich &amp; famous</li>
+        <li>Monsters destroyed your town and you are the only one left</li>
+        <li>Exiled (Chaotic) or Assigned Duty (Lawful)</li>
+        <li>Sold into slavery</li>
+      </ul>
+      <p><em>Your backstory will be developed with your DM.</em></p>
+    </div>
+    
+    <!-- TAB 2: CHARACTER SHEET GUIDE -->
+    <div class="tab-content" id="charsheet-guide">
+      <p class="lead">A Ray's Whirld character sheet covers everything about your hero in three big areas: <strong>About Me</strong> (who you are), <strong>What I Can Do</strong> (your abilities in play), and <strong>What I Have</strong> (your gear and resources). Every section below maps to real game mechanics.</p>
+      
+      <h2 class="section-title">🧍 About Me</h2>
+      <p>This section identifies your character's basic information:</p>
+      
+      <div class="stat-block">
+        <div class="stat-item">
+          <div class="stat-label">Name</div>
+          <div class="stat-value">Your character's legal/birth name</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Hero Name</div>
+          <div class="stat-value">Your adventuring alias or title</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Species</div>
+          <div class="stat-value">Human, Elf, Dwarf, etc.</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Alignment</div>
+          <div class="stat-value">Your moral compass (9-point alignment)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Classes & Levels</div>
+          <div class="stat-value">Fighter 5 / Mage 3, etc.</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Size</div>
+          <div class="stat-value">Small, Medium, Large</div>
+        </div>
+      </div>
+
+      <h2 class="section-title">⚔️ Combat Stats</h2>
+      <p>Your fighting capabilities:</p>
+      
+      <div class="stat-block">
+        <div class="stat-item">
+          <div class="stat-label">HP (Hit Points)</div>
+          <div class="stat-value">Current / Maximum health</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">AC (Armor Class)</div>
+          <div class="stat-value">Defense rating (higher is better)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">ATK (Attack Bonus)</div>
+          <div class="stat-value">Bonus to hit rolls</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">DEF (Defense Bonus)</div>
+          <div class="stat-value">Bonus against attacks</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Initiative</div>
+          <div class="stat-value">DEX modifier + bonuses</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Speed</div>
+          <div class="stat-value">Movement rate in feet/round</div>
+        </div>
+      </div>
+
+      <h2 class="section-title">📊 Ability Scores</h2>
+      <p>Your six core attributes (3-18+), each with a modifier:</p>
+      
+      <ul class="wiki-list">
+        <li><strong>STR (Strength)</strong> - Physical power, melee damage</li>
+        <li><strong>DEX (Dexterity)</strong> - Agility, AC, ranged attacks</li>
+        <li><strong>CON (Constitution)</strong> - Health, stamina, resilience</li>
+        <li><strong>INT (Intelligence)</strong> - Learning, knowledge, Mage spells</li>
+        <li><strong>WIS (Wisdom)</strong> - Perception, willpower, Cleric spells</li>
+        <li><strong>CHA (Charisma)</strong> - Leadership, persuasion, Bard spells</li>
+      </ul>
+
+      <h2 class="section-title">🎯 Skills</h2>
+      <p>GURPS-based skill system. Skills range from 0 (untrained) to 20+ (master). Roll d20 + skill + ability modifier vs. difficulty class.</p>
+
+      <h2 class="section-title">🎯 Proficiencies</h2>
+      <p>AD&D-Based System.  General information can be found <a href="https://acksrd.opengamingnetwork.com/proficiencies/"> here:</a></p>
+
+      <h2 class="section-title">✨ Special Abilities</h2>
+      <p>Class features, racial abilities, feats, mutations, and unique powers.</p>
+
+      <h2 class="section-title">🎒 Equipment & Inventory</h2>
+      <p>Track weapons, armor, magic items, and general gear. Note encumbrance limits.</p>
+
+      <h2 class="section-title">💰 Wealth</h2>
+      <p>Currency in CP (copper), SP (silver), GP (gold), and PP (platinum).</p>
+
+      <h2 class="section-title">🧠 Grudges & Alignment</h2>
+      <p>The Grudge system tracks moral actions and alignment shifts. Positive/negative actions accumulate grudges.</p>
+
+      <h2 class="section-title">📜 Spells & Magic</h2>
+      <p>For spellcasters: list known spells, spell slots per level, and Lör elements if using Lör Magic.</p>
+    </div>
+    
+    <!-- TAB 3: BLANK CHARACTER SHEET -->
+    <div class="tab-content" id="charsheet-template">
+      <h2 class="section-title">Blank Character Sheet Template</h2>
+      <p>Use this template to record your character information.</p>
+<a href="https://drive.google.com/file/d/1mQNicf8h9BiZuyQfi5EaCXVDRVl9KI47/view?usp=sharing" target="_blank">Printable Sheet</a>
+      
+      <div class="card">
+        <div class="card-title">🧍 ABOUT ME</div>
+        <div class="stat-block">
+          <div class="stat-item"><div class="stat-label">Name</div><div class="stat-value">_________________________</div></div>
+          <div class="stat-item"><div class="stat-label">Hero Name</div><div class="stat-value">_________________________</div></div>
+          <div class="stat-item"><div class="stat-label">Species</div><div class="stat-value">_________________________</div></div>
+          <div class="stat-item"><div class="stat-label">Alignment</div><div class="stat-value">_________________________</div></div>
+          <div class="stat-item"><div class="stat-label">Classes & Levels</div><div class="stat-value">_________________________</div></div>
+          <div class="stat-item"><div class="stat-label">Size</div><div class="stat-value">_________________________</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚔️ COMBAT STATS</div>
+        <div class="stat-block">
+          <div class="stat-item"><div class="stat-label">HP</div><div class="stat-value">_____ / _____</div></div>
+          <div class="stat-item"><div class="stat-label">AC</div><div class="stat-value">_____</div></div>
+          <div class="stat-item"><div class="stat-label">ATK</div><div class="stat-value">_____</div></div>
+          <div class="stat-item"><div class="stat-label">DEF</div><div class="stat-value">_____</div></div>
+          <div class="stat-item"><div class="stat-label">Initiative</div><div class="stat-value">_____</div></div>
+          <div class="stat-item"><div class="stat-label">Speed</div><div class="stat-value">_____</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📊 ABILITY SCORES</div>
+        <div class="stat-block">
+          <div class="stat-item"><div class="stat-label">STR</div><div class="stat-value">_____ (mod: _____)</div></div>
+          <div class="stat-item"><div class="stat-label">DEX</div><div class="stat-value">_____ (mod: _____)</div></div>
+          <div class="stat-item"><div class="stat-label">CON</div><div class="stat-value">_____ (mod: _____)</div></div>
+          <div class="stat-item"><div class="stat-label">INT</div><div class="stat-value">_____ (mod: _____)</div></div>
+          <div class="stat-item"><div class="stat-label">WIS</div><div class="stat-value">_____ (mod: _____)</div></div>
+          <div class="stat-item"><div class="stat-label">CHA</div><div class="stat-value">_____ (mod: _____)</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎯 SKILLS</div>
+        <p style="font-size: 0.9em; margin-bottom: 10px;">List your trained skills and their levels:</p>
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 8px; font-size: 0.9em;">
+          <div style="padding: 8px; background: rgba(255,255,255,0.02);">Skill Name</div>
+          <div style="padding: 8px; background: rgba(255,255,255,0.02);">Level</div>
+          <div style="padding: 8px; border-bottom: 1px solid var(--border);">_________________________</div>
+          <div style="padding: 8px; border-bottom: 1px solid var(--border);">_____</div>
+          <div style="padding: 8px; border-bottom: 1px solid var(--border);">_________________________</div>
+          <div style="padding: 8px; border-bottom: 1px solid var(--border);">_____</div>
+          <div style="padding: 8px; border-bottom: 1px solid var(--border);">_________________________</div>
+          <div style="padding: 8px; border-bottom: 1px solid var(--border);">_____</div>
+          <div style="padding: 8px; border-bottom: 1px solid var(--border);">_________________________</div>
+          <div style="padding: 8px; border-bottom: 1px solid var(--border);">_____</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎒 EQUIPMENT</div>
+        <p style="font-size: 0.9em; margin-bottom: 10px;">Weapons, armor, and gear:</p>
+        <div style="font-size: 0.9em; line-height: 2;">
+          <div style="border-bottom: 1px solid var(--border); padding: 4px 0;">_________________________________________________</div>
+          <div style="border-bottom: 1px solid var(--border); padding: 4px 0;">_________________________________________________</div>
+          <div style="border-bottom: 1px solid var(--border); padding: 4px 0;">_________________________________________________</div>
+          <div style="border-bottom: 1px solid var(--border); padding: 4px 0;">_________________________________________________</div>
+          <div style="border-bottom: 1px solid var(--border); padding: 4px 0;">_________________________________________________</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💰 WEALTH</div>
+        <div class="stat-block">
+          <div class="stat-item"><div class="stat-label">Copper (CP)</div><div class="stat-value">_____</div></div>
+          <div class="stat-item"><div class="stat-label">Silver (SP)</div><div class="stat-value">_____</div></div>
+          <div class="stat-item"><div class="stat-label">Gold (GP)</div><div class="stat-value">_____</div></div>
+          <div class="stat-item"><div class="stat-label">Platinum (PP)</div><div class="stat-value">_____</div></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+  <!-- SPELL BOOK PAGE -->
+  <!--

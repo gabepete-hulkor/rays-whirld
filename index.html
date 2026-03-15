@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ray's Whirld — Wiki</title>
+<!-- BASE TAG: Sets the base URL so all relative paths (css/, js/, pages/) resolve
+     correctly whether hosted at the root or in a GitHub Pages subdirectory.
+     If you rename your repository, update the href below to match:
+     e.g. for https://yourname.github.io/my-wiki/ use <base href="/my-wiki/"> -->
+<base href="/rays-whirld/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="site-title">Ray's Whirld</div>
+  <div class="site-subtitle">Official Game Wiki &amp; Reference Manual</div>
+  <div class="header-ornament">⚔ &nbsp; ✦ &nbsp; ⚔</div>
+</header>
+
+<!-- Nav wrapper: hamburger toggle (mobile) + nav links -->
+<div id="nav-wrapper">
+  <button id="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+    <span class="toggle-icon">☰</span>
+    <span class="toggle-label">Menu</span>
+    <span class="toggle-current" id="nav-current-label">🏰 Home</span>
+  </button>
+  <nav id="main-nav">
+    <a href="javascript:void(0)" class="active" onclick="showPage('home', this);">🏰 Home</a>
+    <a href="javascript:void(0)" onclick="showPage('intro', this);">📖 Introduction</a>
+    <a href="javascript:void(0)" onclick="showPage('classes', this);">⚔️ Classes</a>
+    <a href="javascript:void(0)" onclick="showPage('combat', this);">🎲 Combat</a>
+    <a href="javascript:void(0)" onclick="showPage('lor', this);">✨ Lör Magic</a>
+    <a href="javascript:void(0)" onclick="showPage('spells', this);">📜 Spells</a>
+    <a href="javascript:void(0)" onclick="showPage('species', this);">🌍 Species</a>
+    <a href="javascript:void(0)" onclick="showPage('equipment', this);">🛡️ Equipment &amp; Armor</a>
+    <a href="javascript:void(0)" onclick="showPage('lore', this);">🌐 Lore &amp; World</a>
+    <a href="javascript:void(0)" onclick="showPage('skills', this);">📋 Skills</a>
+    <a href="javascript:void(0)" onclick="showPage('mutations', this);">🧬 Mutations</a>
+    <a href="javascript:void(0)" onclick="showPage('charsheet', this);">📄 Character Information</a>
+    <a href="javascript:void(0)" onclick="showPage('spellbook', this);">🔮 Spell Book</a>
+    <a href="javascript:void(0)" onclick="showPage('tables', this);">📊 Tables</a>
+  </nav>
+</div>
+
+<div class="container">
+  <!-- Search bar (visible on all pages) -->
+  <div style="position: relative; margin-bottom: 20px;">
+    <input type="text" id="wikiSearch" placeholder="🔍 Search the wiki…" style="
+      width: 100%; padding: 10px 16px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 4px; color: var(--text);
+      font-family: 'Crimson Pro', serif; font-size: 1rem;
+    ">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <!-- Page content is loaded here dynamically -->
+  <div id="page-container">
+    <div style="text-align:center; padding: 80px 20px; color: var(--text-muted);">
+      <div style="font-size:2rem; margin-bottom:16px;">⚔</div>
+      Loading the Whirld…
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>⚔ &nbsp; Ray's Whirld Wiki &nbsp; ⚔</div>
+  <div style="margin-top: 8px; font-size: 0.8rem;">For official use at the table only</div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ============================================================
+//  PAGE LOADER  — fetches pages/[id].html and injects content
+// ============================================================
+
+const pageCache = {};   // cache fetched pages so we don't re-fetch
+
+async function loadPage(pageId) {
+  if (pageCache[pageId]) return pageCache[pageId];
+  try {
+    const resp = await fetch(`pages/${pageId}.html`);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const html = await resp.text();
+    pageCache[pageId] = html;
+    return html;
+  } catch (e) {
+    return `<div class="callout warning"><div class="callout-title">⚠ Error</div>Could not load page "${pageId}". ${e.message}</div>`;
+  }
+}
+
+async function showPage(pageId, navEl) {
+  const container = document.getElementById('page-container');
+
+  // Fade out
+  container.style.opacity = '0';
+  container.style.transition = 'opacity 0.15s';
+
+  const html = await loadPage(pageId);
+
+  // Inject content
+  container.innerHTML = html;
+  container.style.opacity = '1';
+
+  // Update nav active state
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  if (navEl) {
+    navEl.classList.add('active');
+    updateNavLabel(navEl);
+  }
+
+  closeNav();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Run page-specific render functions
+  if (pageId === 'spellbook') {
+    // renderSpells is defined in main.js; call after DOM is ready
+    setTimeout(() => {
+      if (typeof renderSpells === 'function') renderSpells();
+    }, 0);
+  }
+  if (pageId === 'mutations') {
+    setTimeout(() => {
+      if (typeof renderMutations === 'function') renderMutations();
+    }, 0);
+  }
+
+  // Re-attach any inline search within the loaded page
+  const skillSearch = document.getElementById('skill-search');
+  if (skillSearch) {
+    skillSearch.addEventListener('input', function() {
+      if (typeof filterSkills === 'function') filterSkills();
+    });
+  }
+
+  // Wire up wiki search against freshly loaded content
+  initWikiSearch();
+}
+
+// ============================================================
+//  WIKI SEARCH
+// ============================================================
+function initWikiSearch() {
+  const searchInput = document.getElementById('wikiSearch');
+  const searchResults = document.getElementById('searchResults');
+  if (!searchInput) return;
+
+  // Remove old listener by replacing element clone trick
+  const newInput = searchInput.cloneNode(true);
+  searchInput.parentNode.replaceChild(newInput, searchInput);
+
+  let searchTimeout;
+  newInput.addEventListener('input', function(e) {
+    clearTimeout(searchTimeout);
+    const query = e.target.value.toLowerCase().trim();
+    if (query.length < 2) {
+      searchResults.classList.remove('visible');
+      searchResults.innerHTML = '';
+      return;
+    }
+    searchTimeout = setTimeout(async () => {
+      // Search across ALL pages by fetching them if not cached
+      const allPageIds = ['home','intro','classes','combat','lor','spells','species','equipment','lore','skills','mutations','charsheet','spellbook','tables'];
+      const results = [];
+      for (const pid of allPageIds) {
+        const html = await loadPage(pid);
+        // Strip HTML tags for text search
+        const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').toLowerCase();
+        if (text.includes(query)) {
+          const idx = text.indexOf(query);
+          const start = Math.max(0, idx - 60);
+          const end = Math.min(text.length, idx + query.length + 60);
+          let context = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').substring(start, end).trim();
+          const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+          context = context.replace(regex, '<span class="highlight">$1</span>');
+          // Get page title from cached html
+          const titleMatch = html.match(/class="page-title"[^>]*>([^<]+)/);
+          const pageTitle = titleMatch ? titleMatch[1] : pid;
+          results.push({ pageId: pid, pageTitle, context });
+        }
+      }
+      if (results.length > 0) {
+        searchResults.innerHTML = `
+          <div style="margin-bottom: 10px; color: var(--gold); font-family: 'Cinzel', serif;">
+            Found ${results.length} result${results.length > 1 ? 's' : ''}
+          </div>
+          ${results.slice(0, 15).map(r => `
+            <div class="search-result-item" onclick="goToSearchResult('${r.pageId}')">
+              <strong>${r.pageTitle}</strong><br>
+              <small>...${r.context}...</small>
+            </div>
+          `).join('')}
+        `;
+        searchResults.classList.add('visible');
+      } else {
+        searchResults.innerHTML = '<div class="search-result-item" style="cursor:default">No results found</div>';
+        searchResults.classList.add('visible');
+      }
+    }, 300);
+  });
+}
+
+function goToSearchResult(pageId) {
+  const navLink = document.querySelector(`nav a[onclick*="'${pageId}'"]`);
+  showPage(pageId, navLink);
+}
+
+// ============================================================
+//  BOOTSTRAP — load home page on startup
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const homeLink = document.querySelector("nav a[onclick*=\"'home'\"]");
+  showPage('home', homeLink);
+  initWikiSearch();
+});
+</script>
+
+</body>
+</html>

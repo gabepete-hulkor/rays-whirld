@@ -1,0 +1,156 @@
+<h1 class="page-title">Combat</h1>
+    <p class="lead">Developed circa 1980 → D20 Combat System. All combat in Ray's Whirld uses a sophisticated Attack vs. Defence comparison system with 2d20 rolls.</p>
+
+    <h2 class="section-title">Combat Overview</h2>
+    <p>Attack and Defence each have a numerical value based on Strength, Dexterity, Class, and Level, plus bonuses from weapons, proficiency, armor class, and multi-strike. The difference between Atk and Def gives a bonus to the higher number.</p>
+
+    <div class="callout info">
+      <div class="callout-title">📋 Each Round</div>
+      Roll 2d20 (high numbers win). The attacker calls the low die with bonus (if applicable). The defender responds. Then the attacker calls the high die and the defender responds.
+    </div>
+
+    <h2 class="section-title">Roll Outcomes</h2>
+    <table class="wiki-table">
+      <thead>
+        <tr><th>Outcome</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Attacker wins both rolls</strong></td><td>Critical Hit!</td></tr>
+        <tr><td><strong>Tie: Natural beats Modified</strong></td><td>Defender advantage</td></tr>
+        <tr><td><strong>Attacker wins 1 roll</strong></td><td>Non-Critical Hit</td></tr>
+        <tr><td><strong>Both Natural: Tie</strong></td><td>Use Grudge or Lose &amp; Receive</td></tr>
+        <tr><td><strong>Attacker loses both</strong></td><td>Complete Miss</td></tr>
+        <tr><td><strong>Attacker misses &amp; both natural dice &lt;10, Defender both natural &gt;10</strong></td><td>Attacker FUMBLES — roll on Fumble Table!</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠ Fumble!</div>
+      If the attacker misses, has both natural dice under 10, AND the defender has both natural dice over 10 — the attacker has fumbled! Roll on the Fumble Table.
+    </div>
+
+    <h2 class="section-title">Initiative</h2>
+    <p>Initiative is base d6 at Normal Speed. High score wins. <strong>Tie = Reroll with Next Higher Die.</strong> All bonuses apply. With initiative, a character receives a <strong>free Dodge</strong> (free action).</p>
+
+    <h2 class="section-title">Attack &amp; Defence Bonuses</h2>
+    <p>The following bonuses (#1, 2, 3, 4) apply to both Attack and Defence:</p>
+
+    <table class="wiki-table">
+      <thead>
+        <tr><th>#</th><th>Source</th><th>Bonus/Penalty Formula</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Strength</strong></td>
+          <td>+1 per 2 Str points over 15. (20 Str = +3, 16 Str = +1). –1 per point below 9.<br><em>*Powered Weapons (pistol, rifle, etc.) do NOT include Str bonus.</em></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Dexterity</strong></td>
+          <td>+1 per 2 Dex points over 15</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Class</strong></td>
+          <td>Fighter +5 | Paladin, Ranger, Jedi, Monk +4 | Cleric, Druid +3 | Subclasses –1 each | Lör +2 | Thief, Assassin +1 | Bard +0 | Mage, Illusionist –1</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Level</strong></td>
+          <td>–1/Level under 5 | +1/Level over 7 (Level 8 = +1)<br><em>Total level = all prime classes combined (not subclasses)</em></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Proficiency</strong></td>
+          <td>+1/Prof over I (e.g., Blades I+3 = +4 Atk) | 1 Attack/Action/Proficiency (Blades II+3 = 2 Attacks/Action)</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>Armor Class</strong></td>
+          <td>AC5 = +0 | –1/AC over 5 (AC10 = –3) | +1/AC below 5 (AC –40 = +23)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-title">Dodge &amp; Block</h2>
+
+    <div class="hero">
+      <div class="card">
+        <div class="card-title">🏃 Dodge</div>
+        <p><strong>Requires:</strong> Acrobatics skill (+1) AND Gymnastics skill (+1) = <strong>+2 Dodge bonus (+4 total with both)</strong></p>
+        <p>1 Action = 1 Da (Dodge Action). Dodge is divided among all attackers. With initiative, receive a free Dodge (free action). Without initiative — Dodge costs an action.</p>
+        <p><em>Dodging stacks up vs. attackers.</em></p>
+      </div>
+      <div class="card">
+        <div class="card-title">🛡️ Block</div>
+        <p><strong>Requires:</strong> An action, by hand or item (blade, staff, shield, etc.)</p>
+        <p>+1 Per Proficiency and bonus (e.g., Blades II +3 = +5 Block, 2/Round). Only one block max per attack applies. Blocking is divided among attacks.</p>
+        <p><em>Bless, Pray, Idol, Wish… also provide bonuses!</em></p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Damage Modifiers by AC</h2>
+    <p>Lower Armor Class takes less damage. Higher AC (worse armor) takes more damage:</p>
+
+    <table class="wiki-table">
+      <thead>
+        <tr><th>Armor Class</th><th>Damage Modifier</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>AC 10 (Nude Human)</td><td>×2 Damage</td></tr>
+        <tr><td>AC 5</td><td>×1 Damage (normal)</td></tr>
+        <tr><td>AC 0</td><td>½ Damage</td></tr>
+        <tr><td>AC –5 (Full Plate)</td><td>Even less damage</td></tr>
+        <tr><td>AC –40+ (Tank-level)</td><td>Minimal damage</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-title">Saving Throws</h2>
+
+    <table class="wiki-table">
+      <thead>
+        <tr><th>Save Type</th><th>Based On</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Spell FX &amp; Gaze Weapons</td>
+          <td>Luck</td>
+          <td>Modified by BBLvl and Protection. Special resistances may also apply.</td>
+        </tr>
+        <tr>
+          <td>Poison, Disease &amp; Environmental FX</td>
+          <td>Constitution</td>
+          <td>Same modifiers as above. Rolled opposed like combat vs. Power Rating of FX.</td>
+        </tr>
+        <tr>
+          <td>Fear</td>
+          <td>Luck</td>
+          <td>+Bonus by Wisdom: [(Wis – 15) / 2]</td>
+        </tr>
+        <tr>
+          <td>Hypnotism</td>
+          <td>Luck</td>
+          <td>+Bonus by Intelligence</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-title">📊 Formula: Save</div>
+      <div class="formula">Save = Luck + BBLvl + Protection + Special Resistances</div>
+      Compare against Power Rating of the effect, rolled opposed like combat.
+    </div>
+
+    <h2 class="section-title">Combat Example</h2>
+    <div class="roll-example">
+      <div class="roll-title">Example Round</div>
+      <p><strong>Attacker:</strong> "I have +10 on my dice (2d20). I'm sure to hit!"<br>
+      <strong>Defender:</strong> "I'm doomed! Probably. But maybe…"<br>
+      <em>They roll.</em><br>
+      <strong>Attacker:</strong> "I rolled a 1! That's 1+10=11. Low die call: 11."<br>
+      <strong>Defender:</strong> "HaHa! Natural 12! I beat your low die!"<br>
+      <strong>Attacker:</strong> "High die: 13 (3+10)."<br>
+      <strong>Defender:</strong> "Natural 15! You've fumbled!"<br>
+      <em>That's why we roll dice. Unexpected is not impossible. That's why you have Grudge.</em></p>
+    </div>
