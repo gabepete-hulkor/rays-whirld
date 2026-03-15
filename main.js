@@ -71,6 +71,7 @@ function closeNav() {
       toggle.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', isOpen);
       toggle.querySelector('.toggle-icon').textContent = isOpen ? '✕' : '☰';
+      if (isOpen) window.scrollTo({ top: 0, behavior: 'instant' });
     });
 
     // Close when a link is tapped
