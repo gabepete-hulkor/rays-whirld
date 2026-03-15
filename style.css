@@ -252,36 +252,35 @@ body::before {
       display: flex;
     }
 
-    /* Closed state */
-    nav {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      flex-direction: column;
-      align-items: stretch;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      padding: 0;
-      background: var(--bg-panel);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-      border-bottom: none;
-      z-index: 300;
-    }
-
-    /* Open state — pushes page content down, user scrolls the page normally */
-    nav.nav-open {
-      max-height: 100vh;
-      overflow-y: visible;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* Keep toggle button always on top */
+    /* nav-wrapper must be relative so the absolute nav positions correctly */
     #nav-wrapper {
       position: sticky;
       top: 0;
       z-index: 400;
+      /* Expand to contain the open nav so it doesn't overlap page content */
+    }
+
+    /* Closed state — zero height, hidden */
+    nav {
+      position: relative;
+      flex-direction: column;
+      align-items: stretch;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0;
+      background: var(--bg-panel);
+      border-bottom: none;
+      z-index: 300;
+    }
+
+    /* Open state — expands in flow, pushing page content down */
+    nav.nav-open {
+      max-height: 80vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
     }
 
     nav a {
