@@ -43,7 +43,6 @@
     <a href="javascript:void(0)" onclick="showPage('charsheet', this);">📄 Character Information</a>
     <a href="javascript:void(0)" onclick="showPage('spellbook', this);">🔮 Spell Book</a>
     <a href="javascript:void(0)" onclick="showPage('tables', this);">📊 Tables</a>
-   <!--  <a href="javascript:void(0)" onclick="showPage('familiars', this);">🐱 Familiars</a> -->
   </nav>
 </div>
 <div id="nav-spacer"></div>
@@ -145,21 +144,23 @@ async function showPage(pageId, navEl) {
 }
 
 // ============================================================
-//  WIKI SEARCH
+//  WIKI SEARCH  — uses pre-built SEARCH_INDEX from search-index.js
 // ============================================================
 function initWikiSearch() {
   const searchInput = document.getElementById('wikiSearch');
   const searchResults = document.getElementById('searchResults');
-  if (!searchInput) return;
+  if (!searchInput || !searchResults) return;
 
-  // Clone to remove old listeners
-  const newInput = searchInput.cloneNode(true);
-  searchInput.parentNode.replaceChild(newInput, searchInput);
+  // Only attach the listener once
+  if (searchInput.dataset.searchReady) return;
+  searchInput.dataset.searchReady = 'true';
 
   let searchTimeout;
-  newInput.addEventListener('input', function(e) {
+
+  searchInput.addEventListener('input', function() {
     clearTimeout(searchTimeout);
-    const query = e.target.value.toLowerCase().trim();
+    const query = this.value.toLowerCase().trim();
+    const rawQuery = this.value.trim();
 
     if (query.length < 2) {
       searchResults.classList.remove('visible');
@@ -167,65 +168,65 @@ function initWikiSearch() {
       return;
     }
 
-    searchTimeout = setTimeout(() => {
-      // Search the pre-built index — instant, no fetching required
-      const terms = query.split(/\s+/).filter(t => t.length > 1);
+    searchTimeout = setTimeout(function() {
+      if (typeof SEARCH_INDEX === 'undefined') {
+        searchResults.innerHTML = '<div class="search-result-item" style="cursor:default;color:var(--text-muted)">Search index not loaded.</div>';
+        searchResults.classList.add('visible');
+        return;
+      }
+
+      const terms = query.split(/\s+/).filter(function(t) { return t.length > 1; });
       const matches = [];
       const seen = new Set();
 
-      for (const entry of SEARCH_INDEX) {
-        // Must match ALL terms
-        if (!terms.every(t => entry.text.includes(t))) continue;
+      for (var i = 0; i < SEARCH_INDEX.length; i++) {
+        var entry = SEARCH_INDEX[i];
+        var allMatch = true;
+        for (var j = 0; j < terms.length; j++) {
+          if (entry.text.indexOf(terms[j]) === -1) { allMatch = false; break; }
+        }
+        if (!allMatch) continue;
 
-        // Find snippet around first term hit
-        const idx = entry.text.indexOf(terms[0]);
-        const start = Math.max(0, idx - 60);
-        const end = Math.min(entry.text.length, idx + terms[0].length + 100);
-        let snippet = entry.text.substring(start, end).trim();
+        var idx = entry.text.indexOf(terms[0]);
+        var s = Math.max(0, idx - 60);
+        var e = Math.min(entry.text.length, idx + terms[0].length + 100);
+        var snippet = entry.text.substring(s, e).trim();
 
-        // Highlight all terms
-        terms.forEach(t => {
-          const rx = new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        terms.forEach(function(t) {
+          var rx = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\]/g, '\$&') + ')', 'gi');
           snippet = snippet.replace(rx, '<mark style="background:rgba(201,168,76,0.3);color:var(--gold-light);border-radius:2px;padding:0 2px">$1</mark>');
         });
 
-        // De-duplicate by page+section
-        const key = entry.id + '|' + entry.section;
+        var key = entry.id + '|' + entry.section;
         if (seen.has(key)) continue;
         seen.add(key);
 
-        matches.push({ ...entry, snippet });
+        matches.push({ id: entry.id, label: entry.label, snippet: snippet });
         if (matches.length >= 20) break;
       }
 
       if (matches.length > 0) {
-        searchResults.innerHTML = `
-          <div style="padding:8px 12px; color:var(--gold); font-family:'Cinzel',serif; font-size:0.8rem; border-bottom:1px solid var(--border);">
-            ${matches.length} result${matches.length !== 1 ? 's' : ''} for <em>"${e.target.value.trim()}"</em>
-          </div>
-          ${matches.map(r => `
-            <div class="search-result-item" onclick="goToSearchResult('${r.id}')">
-              <strong>${r.label}</strong>
-              <small>...${snippet}...</small>
-            </div>
-          `.replace('${snippet}', r.snippet)).join('')}
-        `;
+        var html = '<div style="padding:8px 12px;color:var(--gold);font-family:Cinzel,serif;font-size:0.8rem;border-bottom:1px solid var(--border);">'
+          + matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' for <em>"' + rawQuery + '"</em></div>';
+        matches.forEach(function(r) {
+          html += '<div class="search-result-item" onclick="goToSearchResult('' + r.id + '')">'
+            + '<strong>' + r.label + '</strong><br><small>...' + r.snippet + '...</small></div>';
+        });
+        searchResults.innerHTML = html;
         searchResults.classList.add('visible');
       } else {
         searchResults.innerHTML = '<div class="search-result-item" style="cursor:default;color:var(--text-muted)">No results found</div>';
         searchResults.classList.add('visible');
       }
-    }, 200);
+    }, 250);
   });
 
-  // Close search results when clicking outside
   document.addEventListener('click', function(e) {
     if (!e.target.closest('#wikiSearch') && !e.target.closest('#searchResults')) {
       searchResults.classList.remove('visible');
     }
   });
 }
-
 function goToSearchResult(pageId) {
   document.getElementById('searchResults').classList.remove('visible');
   document.getElementById('wikiSearch').value = '';
