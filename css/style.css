@@ -252,6 +252,11 @@ body::before {
       display: flex;
     }
 
+    /* Hide the big header on mobile — nav toggle shows current page name */
+    header {
+      display: none;
+    }
+
     #nav-spacer {
       display: none;
     }
