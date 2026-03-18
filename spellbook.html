@@ -1,0 +1,106 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JK7Y88GNRY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JK7Y88GNRY');
+</script>
+<h1 class="page-title">Spell Book</h1>
+
+<div class="tab-container">
+
+  <!-- TAB BUTTONS -->
+  <div class="tab-buttons">
+    <button class="tab-button active"
+        onclick="switchTab('spellbook','all',this); renderSpells();">
+        📜 All Spells (5e SRD)
+    </button>
+    <button class="tab-button"
+        onclick="switchTab('spellbook','cleric',this); renderClericSpells();">
+        🌞 Cleric Spells
+    </button>
+    <button class="tab-button"
+        onclick="switchTab('spellbook','mage',this); renderMageSpells();">
+        🔮 Mage Spells
+    </button>
+  </div>
+
+  <!-- TAB 1: ALL SPELLS (5e SRD) -->
+  <div class="tab-content active" id="spellbook-all">
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; align-items:center;">
+      <input type="text" id="spell-search" placeholder="🔍 Search spells..."
+        style="flex:1; min-width:200px; padding:10px 14px;
+               background:rgba(255,255,255,0.05); border:1px solid rgba(212,175,55,0.3);
+               border-radius:6px; color:#e8d5a0; font-family:inherit; font-size:0.95em;"
+        oninput="renderSpells()">
+      <select id="spell-level-filter"
+        style="padding:10px 14px; background:#1a1209; border:1px solid rgba(212,175,55,0.3);
+               border-radius:6px; color:#e8d5a0; font-family:inherit; font-size:0.9em;"
+        onchange="renderSpells()">
+        <option value="all">All Levels</option>
+        <option value="0">Cantrip (0)</option>
+        <option value="1">Level 1</option>
+        <option value="2">Level 2</option>
+        <option value="3">Level 3</option>
+        <option value="4">Level 4</option>
+        <option value="5">Level 5</option>
+        <option value="6">Level 6</option>
+        <option value="7">Level 7</option>
+        <option value="8">Level 8</option>
+        <option value="9">Level 9</option>
+      </select>
+      <select id="spell-school-filter"
+        style="padding:10px 14px; background:#1a1209; border:1px solid rgba(212,175,55,0.3);
+               border-radius:6px; color:#e8d5a0; font-family:inherit; font-size:0.9em;"
+        onchange="renderSpells()">
+        <option value="all">All Schools</option>
+        <option value="abjuration">Abjuration</option>
+        <option value="conjuration">Conjuration</option>
+        <option value="divination">Divination</option>
+        <option value="enchantment">Enchantment</option>
+        <option value="evocation">Evocation</option>
+        <option value="illusion">Illusion</option>
+        <option value="necromancy">Necromancy</option>
+        <option value="transmutation">Transmutation</option>
+      </select>
+      <span id="spell-count" style="color:var(--gold); font-size:0.9em; white-space:nowrap;"></span>
+    </div>
+    <div id="spells-container" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); gap:14px;"></div>
+  </div>
+
+  <!-- TAB 2: CLERIC SPELLS -->
+  <div class="tab-content" id="spellbook-cleric">
+    <p class="lead">Cleric spells from Ray's Whirld spell list. Divine magic granted by deities, based on Wisdom.</p>
+    <div style="margin-bottom:20px; padding:15px; background:var(--bg-card); border:1px solid var(--border); border-radius:5px;">
+      <div style="font-family:'Cinzel',serif; color:var(--gold); margin-bottom:10px;">Legend:</div>
+      <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:0.9em;">
+        <span><strong style="color:var(--gold);">+</strong> = Unearthed Arcana Spells</span>
+        <span><strong style="color:var(--blue-bright);">*</strong> = Ray's Whirld Custom Spells</span>
+      </div>
+    </div>
+    <div id="spells-container-cleric"></div>
+  </div>
+
+  <!-- TAB 3: MAGE SPELLS -->
+  <div class="tab-content" id="spellbook-mage">
+    <p class="lead">Mage (Magic User) spells from Ray's Whirld spell list. Arcane magic through study, based on Intelligence.</p>
+    <div style="margin-bottom:20px; padding:15px; background:var(--bg-card); border:1px solid var(--border); border-radius:5px;">
+      <div style="font-family:'Cinzel',serif; color:var(--gold); margin-bottom:10px;">Legend:</div>
+      <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:0.9em;">
+        <span><strong style="color:var(--gold);">+</strong> = Unearthed Arcana Spells</span>
+        <span><strong style="color:var(--blue-bright);">*</strong> = Ray's Whirld Custom Spells</span>
+        <span><strong style="color:var(--green-bright);">(T)</strong> = Thief spells</span>
+      </div>
+    </div>
+    <div id="spells-container-mage"></div>
+  </div>
+
+</div><!-- /.tab-container -->
+
+<script>
+(function() {
+  if (typeof renderSpells === 'function') renderSpells();
+})();
+</script>
