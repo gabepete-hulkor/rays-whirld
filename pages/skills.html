@@ -1,462 +1,205 @@
-<h1 class="page-title">Skills</h1>
-    <p class="lead">From Acting to Zoology — if it isn't combat, there's a skill for it. Ray's Whirld uses the GURPS skill list as its base, adapted to the RW percentage system.</p>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JK7Y88GNRY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JK7Y88GNRY');
+</script>
 
-    <h2 class="section-title">Skill Mechanics</h2>
+<h1 class="page-title">Master Skills List</h1>
+<p class="lead">Ray's Whirld uses a percentage-based system. While based on classic archetypes, mastery requires navigating complex prerequisite chains and specialized training. Sources include GURPS and Rifts skill lists</p>
 
-    <div class="formula">
-      Skill Base = 5% × Level (Level 1–10 = 5–50% Base)<br>
-      Score Bonus = +5% per point above 15 of the relevant score<br>
-      Critical Success = Roll ≤ 1/10 of target %
-    </div>
+<h2 class="section-title">Skill Mechanics</h2>
+<div class="formula">
+  <strong>Skill Base:</strong> 5% × Level + (Score - 15) if Score > 15.<br>
+  <strong>Jack o' Trades:</strong> 1% Per Level + 1/5 of any Bonus to attempt any skill (must meet prerequisites).<br>
+  <strong>Critical Success:</strong> Roll ≤ 1/10 of target percentage.
+</div>
 
-    <div class="callout">
-      <div class="callout-title">📋 Example: Swimming at Level 10 / Con 20</div>
-      50% Base + 25% Con Bonus = <strong>75% to swim in stormy seas.</strong> No roll needed for calm water — rolls only required for challenge situations.
-    </div>
+<div style="margin: 16px 0 20px">
+  <input type="text" id="skill-search" placeholder="🔍 Search by skill name, prerequisite, or effect..." oninput="filterSkills()" style="width:100%; padding:12px 16px; background:var(--bg-card); border:1px solid var(--border); color:var(--text); font-family:'Crimson Pro',serif; font-size:1.1rem; border-radius:4px; outline:none; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);">
+</div>
 
-    <h2 class="section-title">Skills Per Class</h2>
-    <table class="wiki-table">
-      <thead><tr><th>Class</th><th>Starting Skills</th><th>Notes</th></tr></thead>
-      <tbody>
-        <tr><td>Fighter</td><td>2</td><td>Fewest skills of any class</td></tr>
-        <tr><td>Paladin</td><td>2</td><td>—</td></tr>
-        <tr><td>Ranger</td><td>2 + Rural Survival</td><td>Rural bonus skill free</td></tr>
-        <tr><td>Mage</td><td>4</td><td>—</td></tr>
-        <tr><td>Illusionist</td><td>4</td><td>Urban focus</td></tr>
-        <tr><td>Assassin</td><td>3</td><td>—</td></tr>
-        <tr><td>Monk</td><td>3</td><td>—</td></tr>
-        <tr><td>Alchemist (Sub)</td><td>5+</td><td>Bonus skills from subclass</td></tr>
-        <tr><td>Technologist (Sub)</td><td>3 + Tec</td><td>Tec-specific bonus skills</td></tr>
-        <tr><td>Musician (Sub)</td><td>+1 Instrument/level</td><td>To Level 10</td></tr>
-      </tbody>
-    </table>
-    <p>All classes gain <strong>+1 skill per point of Intelligence above 15.</strong></p>
+<div id="skills-container">
 
-    <div class="callout warning">
-      <div class="callout-title">⚠ Priority Skills — Get These First</div>
-      <ul class="wiki-list">
-        <li><strong>Rural Survival</strong> — Essential outside of cities</li>
-        <li><strong>Urban Survival</strong> — Essential inside cities</li>
-        <li><strong>Literacy</strong> — Prerequisite for Tec Use</li>
-        <li><strong>Acrobatics + Gymnastics</strong> — Both required to take Dodging (+2 Def)</li>
-      </ul>
-    </div>
+  <h2 class="section-title skill-category">🏃 Athletic & Physical</h2>
+  <table class="wiki-table skill-table">
+    <thead><tr><th>Skill</th><th>Notes & Effects</th><th>Prerequisites</th></tr></thead>
+    <tbody>
+      <tr><td>Acrobatics</td><td>Rings, Parallel Bars, Juggling, Wirewalk</td><td>—</td></tr>
+      <tr><td>Gymnastics</td><td>Matwork, Jump, Tumble, Spin</td><td>—</td></tr>
+      <tr><td>Dodging</td><td>Grants static Dodge +2 bonus</td><td>Acrobatics & Gymnastics</td></tr>
+      <tr><td>Darksense</td><td>Full actions while blind (with penalty)</td><td>—</td></tr>
+      <tr><td>Blind Sight</td><td>Passive awareness without vision</td><td>—</td></tr>
+      <tr><td>Endure Agony</td><td>Bonus to Save vs Torture, Pain, Stun, KO, Neg HP</td><td>—</td></tr>
+      <tr><td>Enjoy Agony</td><td>Combat/Action bonuses while in pain/torture</td><td>—</td></tr>
+      <tr><td>Climbing</td><td>Includes Mountaineering and Rappelling</td><td>—</td></tr>
+      <tr><td>Swimming</td><td>Constitution-based checks</td><td>—</td></tr>
+      <tr><td>Ice Skating</td><td>Musical or Athletic variants</td><td>—</td></tr>
+      <tr><td>RunFast / RunFar</td><td>Sprinting vs. Marathon Endurance</td><td>—</td></tr>
+      <tr><td>Fasting</td><td>Extended endurance without food/water</td><td>—</td></tr>
+      <tr><td>Yoga / Zen</td><td>Physical and Mental discipline</td><td>—</td></tr>
+      <tr><td>Zero-G (0G)</td><td>Movement and combat in zero gravity</td><td>—</td></tr>
+      <tr><td>Escape</td><td>Slipping bonds and restraints</td><td>—</td></tr>
+    </tbody>
+  </table>
 
-    <div style="margin: 16px 0 8px">
-      <input type="text" id="skill-search" placeholder="🔍  Search skills..." oninput="filterSkills()" style="width:100%; padding:10px 14px; background:var(--bg-card); border:1px solid var(--border); color:var(--text); font-family:'Crimson Pro',serif; font-size:1rem; border-radius:4px; outline:none;">
-    </div>
+  <h2 class="section-title skill-category">⚙️ Technical, Science & Bio</h2>
+  <table class="wiki-table skill-table">
+    <thead><tr><th>Skill</th><th>Notes & Effects</th><th>Prerequisites</th></tr></thead>
+    <tbody>
+      <tr><td>Tec</td><td>Base technical skill tier</td><td>Literacy</td></tr>
+      <tr><td>HiTec</td><td>Advanced/Ancient technology interface</td><td>Literacy II, Math, Tec II</td></tr>
+      <tr><td>SuperTec</td><td>Highest tier of technological mastery</td><td>HiTec II+</td></tr>
+      <tr><td>BioTec</td><td>Biological engineering and modification</td><td>Literacy, Tec, Biology</td></tr>
+      <tr><td>Computer</td><td>Hardware and standard software use</td><td>—</td></tr>
+      <tr><td>Hacking (Computer)</td><td>Digital intrusion and exploitation</td><td>Computer II, HiTec</td></tr>
+      <tr><td>NetRunning</td><td>Full immersive hacking and digital intrusion</td><td>Computer II</td></tr>
+      <tr><td>Labtec</td><td>Required for Potion Making (>10 Poses)</td><td>—</td></tr>
+      <tr><td>Biology</td><td>Study of living organisms</td><td>—</td></tr>
+      <tr><td>XenoBiology</td><td>Study of alien or exotic life forms</td><td>Biology, Tec</td></tr>
+      <tr><td>Ecology</td><td>Environmental and ecosystem analysis</td><td>—</td></tr>
+      <tr><td>Botany</td><td>Study of plant life</td><td>—</td></tr>
+      <tr><td>Zoology</td><td>Study of animal life</td><td>—</td></tr>
+      <tr><td>Medical</td><td>Advanced field medicine</td><td>First Aid II</td></tr>
+      <tr><td>Surgery</td><td>Critical medical procedures</td><td>Medic II, Physics II, Lit, Tec, HiTec II</td></tr>
+      <tr><td>Veterinary Medic</td><td>Medical care for animals</td><td>Medical II</td></tr>
+      <tr><td>First Aid</td><td>Basic wound stabilization and treatment</td><td>—</td></tr>
+      <tr><td>Chemistry</td><td>Compound analysis and creation</td><td>—</td></tr>
+      <tr><td>Physics</td><td>Available in tiers (I, II, III)</td><td>—</td></tr>
+      <tr><td>Math</td><td>Required for many advanced tech skills</td><td>—</td></tr>
+      <tr><td>Engineering</td><td>Structural and mechanical design</td><td>—</td></tr>
+      <tr><td>Geology</td><td>Study of earth and planetary structures</td><td>—</td></tr>
+      <tr><td>Demolition</td><td>Safe handling/placement of explosives</td><td>Explosives</td></tr>
+      <tr><td>Explosives</td><td>Handling and setting explosive devices</td><td>—</td></tr>
+      <tr><td>Rigging</td><td>Remote piloting of drones, vehicles, and bots</td><td>—</td></tr>
+    </tbody>
+  </table>
 
-    <div id="skills-container">
+  <h2 class="section-title skill-category">🛠️ Craft & Professional</h2>
+  <table class="wiki-table skill-table">
+    <thead><tr><th>Skill</th><th>Notes & Effects</th><th>Prerequisites</th></tr></thead>
+    <tbody>
+      <tr><td>Armorer</td><td>Repair and modify Armor/Weapons</td><td>—</td></tr>
+      <tr><td>Blacksmith</td><td>General metalworking</td><td>—</td></tr>
+      <tr><td>Metalcrafting</td><td>Fine metalwork and crafting</td><td>—</td></tr>
+      <tr><td>Woodcarving</td><td>Detailed wood sculpture and carving</td><td>—</td></tr>
+      <tr><td>Woodwork</td><td>Structural and furniture woodworking</td><td>—</td></tr>
+      <tr><td>Jeweler</td><td>Gemcutting and fine jewelry work</td><td>—</td></tr>
+      <tr><td>Knotwork</td><td>Decorative and functional knots</td><td>—</td></tr>
+      <tr><td>Locksmith</td><td>Increases Thief's base Pick Locks success</td><td>Thief Class</td></tr>
+      <tr><td>Construction</td><td>Building and structural repair</td><td>—</td></tr>
+      <tr><td>Organic Preservation</td><td>Harvesting and saving plant/animal parts</td><td>Harvesting</td></tr>
+      <tr><td>Marketing</td><td>Commercial trade and promotion</td><td>—</td></tr>
+      <tr><td>Cartography</td><td>Map making and reading</td><td>—</td></tr>
+      <tr><td>Brewing / Cooking</td><td>Consumable creation</td><td>—</td></tr>
+      <tr><td>Artist</td><td>Painter, Sculptor, and other visual arts</td><td>—</td></tr>
+    </tbody>
+  </table>
 
-    <h2 class="section-title skill-category">🐾 Animal Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Animal Handling†</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Falconry</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Mimicry (Animal Sounds / Bird Calls)</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Mount†</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Naturalist</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Packing</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Riding†</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Teamster†</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Veterinary/TL</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-    </tbody></table>
+  <h2 class="section-title skill-category">🎓 Knowledge, Social & Arts</h2>
+  <table class="wiki-table skill-table">
+    <thead><tr><th>Skill</th><th>Notes & Effects</th><th>Prerequisites</th></tr></thead>
+    <tbody>
+      <tr><td>Literacy</td><td>Reading and writing; required for many skills</td><td>—</td></tr>
+      <tr><td>Linguistics</td><td>Study and acquisition of languages</td><td>Literacy</td></tr>
+      <tr><td>Lip Reading</td><td>Understanding speech without hearing</td><td>—</td></tr>
+      <tr><td>Lying</td><td>Basic deception and misdirection</td><td>—</td></tr>
+      <tr><td>Conning</td><td>Complex deceptions and scams</td><td>Lying</td></tr>
+      <tr><td>Disguise</td><td>Types: Pronouncement, Entry, or Exit (3 separate skills)</td><td>—</td></tr>
+      <tr><td>Impersonation</td><td>Assuming another person's identity</td><td>—</td></tr>
+      <tr><td>Haggling</td><td>Negotiating prices and trades</td><td>Urban Survival</td></tr>
+      <tr><td>Seduction</td><td>Charm and romantic persuasion</td><td>—</td></tr>
+      <tr><td>Law</td><td>+1 to Lawful / -1 to Chaotic interactions</td><td>—</td></tr>
+      <tr><td>Lore (Type)</td><td>Knowledge of Species/Monster strengths/weaknesses</td><td>Specify Type</td></tr>
+      <tr><td>Geography</td><td>Knowledge of terrain, regions, and political borders</td><td>—</td></tr>
+      <tr><td>Religion</td><td>Knowledge of churches, theology, and ritual</td><td>—</td></tr>
+      <tr><td>Politics</td><td>Understanding of power structures and governance</td><td>—</td></tr>
+      <tr><td>Psychology</td><td>Understanding of behavior and motivation</td><td>—</td></tr>
+      <tr><td>Networking</td><td>Social interrelating with specific groups</td><td>Urban Survival</td></tr>
+      <tr><td>Detective</td><td>Investigation, deduction, and evidence analysis</td><td>—</td></tr>
+      <tr><td>Strategy</td><td>Small group command (< 20 units)</td><td>—</td></tr>
+      <tr><td>Tactics</td><td>Large scale warfare (> 20 units)</td><td>Strategy</td></tr>
+      <tr><td>Oratory</td><td>Public speaking and persuasion</td><td>—</td></tr>
+      <tr><td>StoryTelling</td><td>Narrative performance and lore-keeping</td><td>—</td></tr>
+      <tr><td>Jester</td><td>Professional performance/entertainment</td><td>Comedy Skill</td></tr>
+      <tr><td>Acting / Comedy</td><td>Dramatic and performative arts</td><td>—</td></tr>
+      <tr><td>Dancing</td><td>Choreographed and improvisational movement</td><td>—</td></tr>
+      <tr><td>Instrument</td><td>Specify instrument (Musical)</td><td>—</td></tr>
+      <tr><td>Scathing Sarcasm</td><td>Verbal utility/debuff skill</td><td>—</td></tr>
+      <tr><td>Dramatic</td><td>Heightened emotional performance</td><td>—</td></tr>
+      <tr><td>Ventriloquism</td><td>Voice projection and voice-throwing</td><td>—</td></tr>
+      <tr><td>Interrogation</td><td>Includes Torture and Terrorist methods</td><td>—</td></tr>
+      <tr><td>Jack of All Trades</td><td>1% Per Level + 1/5 Bonus to attempt any skill</td><td>Prerequisites still apply</td></tr>
+    </tbody>
+  </table>
 
-    <h2 class="section-title skill-category">🎭 Arts &amp; Entertainment</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Acting</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Artist†</td><td>Hard</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Dancing</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Fire Eating</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Group Performance†</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Makeup/TL</td><td>Easy</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Mimicry†</td><td>Hard</td><td>IQ</td><td>Intelligence + Hearing</td></tr>
-      <tr><td>Musical Composition</td><td>Hard</td><td>IQ</td><td>Intelligence + Hearing</td></tr>
-      <tr><td>Musical Instrument† <span class="tag tag-lor">Bard Required</span></td><td>Hard</td><td>IQ</td><td>Dexterity + Hearing</td></tr>
-      <tr><td>Performance</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Photography/TL</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Poetry</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Singing</td><td>Easy</td><td>HT</td><td>Constitution + Hearing</td></tr>
-      <tr><td>Sleight of Hand</td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Stage Combat</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Ventriloquism</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Writing</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-    </tbody></table>
+  <h2 class="section-title skill-category">🧭 Survival, Nature & Piloting</h2>
+  <table class="wiki-table skill-table">
+    <thead><tr><th>Skill</th><th>Notes & Effects</th><th>Prerequisites</th></tr></thead>
+    <tbody>
+      <tr><td>Survival</td><td>Types: Rural, Urban, Ocean, Space, Underworld</td><td>—</td></tr>
+      <tr><td>Navigation</td><td>Available for various terrain types (RUOS)</td><td>Matching Survival Type</td></tr>
+      <tr><td>Stealth</td><td>Types: Rural, Urban, Ocean, Space (RUOS)</td><td>—</td></tr>
+      <tr><td>Pilot Ground</td><td>Surface vehicle operation</td><td>—</td></tr>
+      <tr><td>Pilot Air</td><td>Fixed-wing and rotorcraft</td><td>Pilot Ground</td></tr>
+      <tr><td>Pilot Space</td><td>Starships and orbital craft</td><td>Pilot Air</td></tr>
+      <tr><td>Pilot H2O</td><td>Boats and submersibles</td><td>—</td></tr>
+      <tr><td>Beast Riding</td><td>Land, Air, or Water creatures</td><td>—</td></tr>
+      <tr><td>Animal Raising</td><td>Breeding and care of animals</td><td>—</td></tr>
+      <tr><td>Animal Training</td><td>Behavioral conditioning of animals</td><td>—</td></tr>
+      <tr><td>Farming</td><td>Dirt, Ocean, or Hydroponic variants</td><td>—</td></tr>
+      <tr><td>Gardening</td><td>Dirt, Ocean, or Hydroponic variants</td><td>—</td></tr>
+      <tr><td>Beekeeping</td><td>Apiary management</td><td>—</td></tr>
+      <tr><td>Herbalist</td><td>Knowledge of medicinal and useful plants</td><td>—</td></tr>
+      <tr><td>Grooming</td><td>Humanoid, Animal, or Plant variants</td><td>—</td></tr>
+      <tr><td>Hunting / Tracking</td><td>Wilderness pursuit and harvesting</td><td>—</td></tr>
+      <tr><td>Hook'n'Line</td><td>Throw, Entangle, Swing, Climb</td><td>Rope, Chain, or Whip</td></tr>
+      <tr><td>Rope</td><td>Knot tying, lashing, and line work</td><td>—</td></tr>
+      <tr><td>Chain</td><td>Handling and use of chains</td><td>—</td></tr>
+      <tr><td>Whip</td><td>Weapon and utility use of whips</td><td>—</td></tr>
+      <tr><td>Iron Stomach</td><td>Bonus vs Ingested Toxins, OD Potion, Rest</td><td>—</td></tr>
+      <tr><td>Poison</td><td>Preparation and application of poisons</td><td>—</td></tr>
+      <tr><td>Drugs</td><td>Use, preparation, and effects of substances</td><td>—</td></tr>
+      <tr><td>Sabotage</td><td>Covert destruction of equipment or structures</td><td>—</td></tr>
+      <tr><td>Traps</td><td>Setting and disarming traps</td><td>—</td></tr>
+      <tr><td>Gambling</td><td>Games of chance and odds manipulation</td><td>—</td></tr>
+      <tr><td>Slight of Hand</td><td>Pickpocketing, palming, misdirection</td><td>—</td></tr>
+      <tr><td>Wicked Quick Draw</td><td>Initiative and speed bonus on weapon draw</td><td>—</td></tr>
+      <tr><td>Kites</td><td>Construction and operation of kites</td><td>—</td></tr>
+      <tr><td>YoYo</td><td>Trick performance and utility use</td><td>—</td></tr>
+    </tbody>
+  </table>
 
-    <h2 class="section-title skill-category">🏃 Athletic Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Acrobatics <span class="tag tag-class">Dodging Prereq</span></td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Aerobatics</td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Aquabatics</td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Bicycling</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Body Sense</td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Breath Control</td><td>Hard</td><td>HT</td><td>Constitution</td></tr>
-      <tr><td>Climbing</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Flight</td><td>Average</td><td>HT</td><td>Constitution</td></tr>
-      <tr><td>Free Fall</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Gymnastics <span class="tag tag-class">Dodging Prereq</span></td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Hiking</td><td>Average</td><td>HT</td><td>Constitution</td></tr>
-      <tr><td>Jumping</td><td>Easy</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Lifting</td><td>Average</td><td>HT</td><td>Strength + Constitution</td></tr>
-      <tr><td>Parachuting/TL</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Running</td><td>Average</td><td>HT</td><td>Constitution</td></tr>
-      <tr><td>Scuba/TL</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Sports†</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Swimming</td><td>Easy</td><td>HT</td><td>Constitution</td></tr>
-      <tr><td>Throwing</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-    </tbody></table>
+</div>
 
-    <h2 class="section-title skill-category">💼 Business Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Accounting</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Administration</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Diplomacy</td><td>Hard</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Economics</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Finance</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Law†</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Market Analysis</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Merchant</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Politics</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Public Speaking</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Savoir-Faire (High Society)</td><td>Easy</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">⚔️ Combat &amp; Weapon Skills</h2>
-    <p><em>Melee Combat:</em></p>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Axe/Mace</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Boxing</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Brawling</td><td>Easy</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Broadsword</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Cloak</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Fast Draw†</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Flail</td><td>Hard</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Force Sword</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Judo</td><td>Hard</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Karate</td><td>Hard</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Knife</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Polearm</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Rapier</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Shield†</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Shortsword</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Spear</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Staff</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Sumo Wrestling</td><td>Average</td><td>DX</td><td>Strength + Constitution</td></tr>
-      <tr><td>Two-Handed Axe/Mace</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Two-Handed Sword</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Whip</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Wrestling</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-    </tbody></table>
-    <p><em>Ranged Combat:</em></p>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Artillery/TL†</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Beam Weapons/TL†</td><td>Easy</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Bow</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Crossbow</td><td>Easy</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Guns/TL† <span class="tag tag-source">Technologist Bonus</span></td><td>Easy</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Innate Attack†</td><td>Easy</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Net</td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Sling</td><td>Hard</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Throwing</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🔨 Craft Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Carpentry</td><td>Easy</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Jeweler/TL</td><td>Hard</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Leatherworking</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Masonry</td><td>Easy</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Pottery</td><td>Hard</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Sculpting</td><td>Hard</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Sewing/TL</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Smith/TL† <span class="tag tag-source">Alchemist Bonus</span></td><td>Average</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🦹 Criminal &amp; Street Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Carousing</td><td>Easy</td><td>HT</td><td>Constitution + Charisma</td></tr>
-      <tr><td>Climbing</td><td>Average</td><td>DX</td><td>Dexterity + Strength</td></tr>
-      <tr><td>Computer Hacking/TL</td><td>Very Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Counterfeiting/TL</td><td>Hard</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Disguise/TL†</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Escape</td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Explosives/TL</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Fast-Talk</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Filch</td><td>Average</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Forgery/TL</td><td>Hard</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Gambling</td><td>Average</td><td>IQ</td><td>Intelligence + Luck</td></tr>
-      <tr><td>Holdout</td><td>Average</td><td>IQ</td><td>Dexterity + Intelligence</td></tr>
-      <tr><td>Intimidation</td><td>Average</td><td>Will</td><td>Strength + Charisma</td></tr>
-      <tr><td>Lockpicking/TL <span class="tag tag-class">Thief Bonus</span></td><td>Average</td><td>IQ</td><td>Dexterity + Intelligence</td></tr>
-      <tr><td>Observation</td><td>Average</td><td>Per</td><td>Sight + Intelligence</td></tr>
-      <tr><td>Pickpocket <span class="tag tag-class">Thief Bonus</span></td><td>Hard</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Poisons/TL <span class="tag tag-class">Assassin Bonus</span></td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Scrounging</td><td>Easy</td><td>Per</td><td>Sight + Intelligence</td></tr>
-      <tr><td>Shadowing</td><td>Average</td><td>IQ</td><td>Intelligence + Sight</td></tr>
-      <tr><td>Sleight of Hand</td><td>Hard</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Smuggling</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Stealth <span class="tag tag-class">Thief/Assassin Bonus</span></td><td>Average</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Streetwise <span class="tag tag-class">Thief Bonus</span></td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Traps/TL <span class="tag tag-class">Thief Bonus</span></td><td>Average</td><td>IQ</td><td>Dexterity + Intelligence</td></tr>
-      <tr><td>Urban Survival <span class="tag tag-class">Priority</span></td><td>Average</td><td>Per</td><td>Intelligence + Sight</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🔬 Design &amp; Invention</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Architecture/TL</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Bioengineering/TL†</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Computer Programming/TL <span class="tag tag-source">Technologist</span></td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Engineer/TL† <span class="tag tag-source">Technologist</span></td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Pharmacy/TL† <span class="tag tag-source">Alchemist</span></td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Weird Science</td><td>Very Hard</td><td>IQ</td><td>Intelligence</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🧘 Esoteric Skills</h2>
-    <p class="muted">These are chi, psychic, or internal-energy skills. The DM decides which apply. Some require special prerequisites.</p>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Autohypnosis</td><td>Hard</td><td>Will</td><td>Wisdom + Intelligence</td></tr>
-      <tr><td>Blind Fighting</td><td>Very Hard</td><td>Per</td><td>Hearing + Touch</td></tr>
-      <tr><td>Body Control</td><td>Very Hard</td><td>HT</td><td>Constitution + Wisdom</td></tr>
-      <tr><td>Breaking Blow</td><td>Hard</td><td>IQ</td><td>Strength + Intelligence</td></tr>
-      <tr><td>Dreaming</td><td>Hard</td><td>Will</td><td>Wisdom + Intelligence</td></tr>
-      <tr><td>Flying Leap</td><td>Hard</td><td>IQ</td><td>Strength + Dexterity</td></tr>
-      <tr><td>Immovable Stance</td><td>Hard</td><td>DX</td><td>Strength + Dexterity</td></tr>
-      <tr><td>Kiai</td><td>Hard</td><td>HT</td><td>Constitution + Charisma</td></tr>
-      <tr><td>Meditation <span class="tag tag-lor">Lör Bonus</span></td><td>Hard</td><td>Will</td><td>Wisdom</td></tr>
-      <tr><td>Mental Strength</td><td>Easy</td><td>Will</td><td>Wisdom + Luck</td></tr>
-      <tr><td>Mind Block</td><td>Average</td><td>Will</td><td>Wisdom + Intelligence</td></tr>
-      <tr><td>Musical Influence</td><td>Very Hard</td><td>IQ</td><td>Intelligence + Hearing</td></tr>
-      <tr><td>Power Blow</td><td>Hard</td><td>Will</td><td>Strength + Wisdom</td></tr>
-      <tr><td>Pressure Points <span class="tag tag-class">Monk Bonus</span></td><td>Hard</td><td>IQ</td><td>Dexterity + Intelligence</td></tr>
-      <tr><td>Push</td><td>Hard</td><td>DX</td><td>Strength + Dexterity</td></tr>
-      <tr><td>Zen Archery</td><td>Very Hard</td><td>IQ</td><td>Wisdom + Dexterity</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🏠 Everyday Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Area Knowledge†</td><td>Easy</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Computer Operation/TL</td><td>Easy</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Cooking <span class="tag tag-class">Cook Subclass</span></td><td>Average</td><td>IQ</td><td>Intelligence + Taste</td></tr>
-      <tr><td>Housekeeping</td><td>Easy</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Knot-Tying</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Sewing/TL</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Weather Sense</td><td>Average</td><td>IQ</td><td>Intelligence + Smell</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">📚 Knowledge Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Connoisseur†</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Current Affairs/TL†</td><td>Easy</td><td>IQ</td><td>Intelligence + Sight</td></tr>
-      <tr><td>Games†</td><td>Easy</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Heraldry</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Hidden Lore†</td><td>Average</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Hobby Skill†</td><td>Easy</td><td>DX/IQ</td><td>Varies</td></tr>
-      <tr><td>Professional Skill†</td><td>Average</td><td>DX/IQ</td><td>Varies</td></tr>
-      <tr><td>Research</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🏥 Medical Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Diagnosis/TL</td><td>Hard</td><td>IQ</td><td>Intelligence + Touch</td></tr>
-      <tr><td>First Aid/TL</td><td>Easy</td><td>IQ</td><td>Intelligence + Touch</td></tr>
-      <tr><td>Pharmacy/TL† <span class="tag tag-source">Alchemist</span></td><td>Hard</td><td>IQ</td><td>Intelligence + Taste</td></tr>
-      <tr><td>Physician/TL</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Poisons/TL</td><td>Hard</td><td>IQ</td><td>Intelligence + Taste</td></tr>
-      <tr><td>Psychology</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom + Charisma</td></tr>
-      <tr><td>Surgery/TL</td><td>Very Hard</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">⚔️ Military Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Camouflage</td><td>Easy</td><td>IQ</td><td>Intelligence + Sight</td></tr>
-      <tr><td>Demolition/TL</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Forward Observer/TL</td><td>Average</td><td>IQ</td><td>Intelligence + Sight</td></tr>
-      <tr><td>Intelligence Analysis/TL</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Leadership</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma + Wisdom</td></tr>
-      <tr><td>Savoir-Faire (Military)</td><td>Easy</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Strategy†</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Tactics</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🌿 Outdoor &amp; Exploration Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Fishing</td><td>Easy</td><td>Per</td><td>Sight + Wisdom</td></tr>
-      <tr><td>Foraging</td><td>Average</td><td>Per</td><td>Sight + Intelligence + Taste</td></tr>
-      <tr><td>Hiking</td><td>Average</td><td>HT</td><td>Constitution</td></tr>
-      <tr><td>Navigation/TL†</td><td>Average</td><td>IQ</td><td>Intelligence + Sight</td></tr>
-      <tr><td>Orienteering</td><td>Average</td><td>IQ</td><td>Intelligence + Sight</td></tr>
-      <tr><td>Prospecting/TL</td><td>Average</td><td>IQ</td><td>Intelligence + Sight + Smell</td></tr>
-      <tr><td>Rural Survival† <span class="tag tag-class">Priority</span></td><td>Average</td><td>Per</td><td>Wisdom + Constitution + Intelligence</td></tr>
-      <tr><td>Survival†</td><td>Average</td><td>Per</td><td>Wisdom + Constitution</td></tr>
-      <tr><td>Tracking</td><td>Average</td><td>Per</td><td>Sight + Smell + Wisdom</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🔮 Occult &amp; Magical Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Alchemy <span class="tag tag-source">Alchemist</span></td><td>Very Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Astrology</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Divination†</td><td>Hard</td><td>IQ</td><td>Wisdom + Luck</td></tr>
-      <tr><td>Exorcism</td><td>Hard</td><td>Will</td><td>Wisdom + Luck</td></tr>
-      <tr><td>Herb Lore</td><td>Very Hard</td><td>IQ</td><td>Intelligence + Wisdom + Smell</td></tr>
-      <tr><td>Occultism</td><td>Average</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Religious Ritual†</td><td>Hard</td><td>IQ</td><td>Wisdom + Intelligence</td></tr>
-      <tr><td>Ritual Magic†</td><td>Very Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Thaumatology</td><td>Very Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🔧 Repair &amp; Maintenance</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Armoury/TL† <span class="tag tag-source">Technologist</span></td><td>Average</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Electronics Repair/TL† <span class="tag tag-source">Technologist</span></td><td>Average</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Electrician/TL</td><td>Average</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Machinist/TL</td><td>Average</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Mechanic/TL† <span class="tag tag-source">Technologist</span></td><td>Average</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Sewing/TL</td><td>Easy</td><td>DX</td><td>Dexterity</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">📖 Scholarly Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Anthropology</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Archaeology</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Cryptography/TL</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Expert Skill†</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>History†</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Linguistics</td><td>Hard</td><td>IQ</td><td>Intelligence + Hearing</td></tr>
-      <tr><td>Literacy <span class="tag tag-class">Priority — Tec Prereq</span></td><td>—</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Mathematics/TL†</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Philosophy†</td><td>Hard</td><td>IQ</td><td>Intelligence + Wisdom</td></tr>
-      <tr><td>Research</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Speed-Reading</td><td>Average</td><td>IQ</td><td>Intelligence + Sight</td></tr>
-      <tr><td>Teaching</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma + Wisdom</td></tr>
-      <tr><td>Writing</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🗣️ Social Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Acting</td><td>Average</td><td>IQ</td><td>Charisma + Intelligence</td></tr>
-      <tr><td>Carousing</td><td>Easy</td><td>HT</td><td>Charisma + Constitution</td></tr>
-      <tr><td>Detect Lies</td><td>Hard</td><td>Per</td><td>Wisdom + Sight + Hearing</td></tr>
-      <tr><td>Diplomacy</td><td>Hard</td><td>IQ</td><td>Charisma + Intelligence + Wisdom</td></tr>
-      <tr><td>Fast-Talk</td><td>Average</td><td>IQ</td><td>Charisma + Intelligence</td></tr>
-      <tr><td>Interrogation</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma + Strength</td></tr>
-      <tr><td>Intimidation</td><td>Average</td><td>Will</td><td>Strength + Charisma</td></tr>
-      <tr><td>Leadership</td><td>Average</td><td>IQ</td><td>Charisma + Intelligence + Wisdom</td></tr>
-      <tr><td>Merchant</td><td>Average</td><td>IQ</td><td>Charisma + Intelligence</td></tr>
-      <tr><td>Persuasion / Public Speaking</td><td>Average</td><td>IQ</td><td>Charisma + Intelligence</td></tr>
-      <tr><td>Savoir-Faire†</td><td>Easy</td><td>IQ</td><td>Charisma + Intelligence</td></tr>
-      <tr><td>Streetwise</td><td>Average</td><td>IQ</td><td>Charisma + Intelligence + Sight</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🕵️ Spy Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Cryptography/TL</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Detect Lies</td><td>Hard</td><td>Per</td><td>Wisdom + Sight + Hearing</td></tr>
-      <tr><td>Disguise/TL†</td><td>Average</td><td>IQ</td><td>Intelligence + Charisma</td></tr>
-      <tr><td>Forgery/TL</td><td>Hard</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Observation</td><td>Average</td><td>Per</td><td>Sight + Intelligence</td></tr>
-      <tr><td>Shadowing</td><td>Average</td><td>IQ</td><td>Intelligence + Sight + Dexterity</td></tr>
-      <tr><td>Stealth</td><td>Average</td><td>DX</td><td>Dexterity + Sight</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">⚙️ Technical Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Chemistry/TL <span class="tag tag-source">Alchemist</span></td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Computer Operation/TL <span class="tag tag-source">Technologist</span></td><td>Easy</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Computer Programming/TL <span class="tag tag-source">Technologist</span></td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Electronics Operation/TL† <span class="tag tag-source">Technologist</span></td><td>Average</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Engineer/TL† <span class="tag tag-source">Technologist</span></td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Explosives/TL</td><td>Average</td><td>IQ</td><td>Intelligence</td></tr>
-      <tr><td>Mechanic/TL† <span class="tag tag-source">Technologist</span></td><td>Average</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Physics/TL</td><td>Hard</td><td>IQ</td><td>Intelligence</td></tr>
-    </tbody></table>
-
-    <h2 class="section-title skill-category">🚗 Vehicle Skills</h2>
-    <table class="wiki-table skill-table"><thead><tr><th>Skill</th><th>Difficulty</th><th>Attr</th><th>RW Score</th></tr></thead><tbody>
-      <tr><td>Boating/TL†</td><td>Average</td><td>DX</td><td>Dexterity</td></tr>
-      <tr><td>Driving/TL† <span class="tag tag-source">Technologist</span></td><td>Average</td><td>DX</td><td>Dexterity + Sight</td></tr>
-      <tr><td>Piloting/TL† <span class="tag tag-source">Technologist</span></td><td>Average</td><td>DX</td><td>Dexterity + Intelligence + Sight</td></tr>
-      <tr><td>Seamanship/TL</td><td>Easy</td><td>IQ</td><td>Intelligence + Dexterity</td></tr>
-      <tr><td>Spacer/TL</td><td>Easy</td><td>IQ</td><td>Intelligence</td></tr>
-    </tbody></table>
-
-    </div><!-- end skills-container -->
-
-    <script>
-    function filterSkills() {
-      const q = document.getElementById('skill-search').value.toLowerCase();
-      document.querySelectorAll('.skill-table tbody tr').forEach(row => {
-        row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
-      });
-      document.querySelectorAll('.skill-category').forEach(h => {
-        const table = h.nextElementSibling && h.nextElementSibling.tagName === 'P'
-          ? h.nextElementSibling.nextElementSibling
-          : h.nextElementSibling;
-        if (!table) return;
-        const visible = table.querySelectorAll && [...table.querySelectorAll('tbody tr')].some(r => r.style.display !== 'none');
-        h.style.display = visible ? '' : 'none';
-        if (table.tagName === 'TABLE') table.style.display = visible ? '' : 'none';
-      });
-    }
-	// SEARCH FUNCTIONALITY
-const searchInput = document.getElementById('wikiSearch');
-const searchResults = document.getElementById('searchResults');
-
-let searchTimeout;
-
-searchInput.addEventListener('input', function(e) {
-  clearTimeout(searchTimeout);
-  const query = e.target.value.toLowerCase().trim();
+<script>
+function filterSkills() {
+  const query = document.getElementById('skill-search').value.toLowerCase();
+  const tables = document.querySelectorAll('.skill-table');
   
-  if (query.length < 2) {
-    searchResults.classList.remove('visible');
-    searchResults.innerHTML = '';
-    return;
-  }
-
-  searchTimeout = setTimeout(() => {
-    const pages = document.querySelectorAll('.page-section');
-    const results = [];
-
-    pages.forEach(page => {
-      const pageId = page.id.replace('page-', '');
-      const pageTitle = page.querySelector('h1, .page-title')?.textContent || pageId;
-      const content = page.textContent.toLowerCase();
-      
-      if (content.includes(query)) {
-        const index = content.indexOf(query);
-        const start = Math.max(0, index - 60);
-        const end = Math.min(content.length, index + query.length + 60);
-        let context = page.textContent.substring(start, end).trim().replace(/\s+/g, ' ');
-        
-        const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-        context = context.replace(regex, '<span class="highlight">$1</span>');
-        
-        results.push({pageId, pageTitle, context});
+  tables.forEach(table => {
+    let hasVisibleRow = false;
+    const rows = table.querySelectorAll('tbody tr');
+    
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      if (text.includes(query)) {
+        row.style.display = '';
+        hasVisibleRow = true;
+      } else {
+        row.style.display = 'none';
       }
     });
 
-    if (results.length > 0) {
-      searchResults.innerHTML = `
-        <div style="margin-bottom: 10px; color: var(--gold); font-family: 'Cinzel', serif;">
-          Found ${results.length} result${results.length > 1 ? 's' : ''}
-        </div>
-        ${results.slice(0, 15).map(r => `
-          <div class="search-result-item" onclick="goToSearchResult('${r.pageId}')">
-            <strong>${r.pageTitle}</strong><br>
-            <small>...${r.context}...</small>
-          </div>
-        `).join('')}
-      `;
-      searchResults.classList.add('visible');
+    const header = table.previousElementSibling;
+    if (hasVisibleRow) {
+      table.style.display = '';
+      header.style.display = '';
     } else {
-      searchResults.innerHTML = '<div class="search-result-item" style="cursor: default;">No results found</div>';
-      searchResults.classList.add('visible');
+      table.style.display = 'none';
+      header.style.display = 'none';
     }
-  }, 300);
-});
-
-function goToSearchResult(pageId) {
-  const navLink = document.querySelector(`nav a[onclick*="'${pageId}'"]`);
-  showPage(pageId, navLink);
+  });
 }
-
-    </script>
+</script>
